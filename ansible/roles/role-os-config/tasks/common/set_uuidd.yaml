@@ -1,4 +1,4 @@
--- 
+--- 
 
 - name: Checking config for UUIDD
   command: chkconfig uuidd on
