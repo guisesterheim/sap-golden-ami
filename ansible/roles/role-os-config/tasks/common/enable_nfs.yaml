@@ -1,13 +1,13 @@
 ---
 
 - name: Enable NFS service
-  ansible.builtin.service:
-    name: nfs
+  service:
+    name: nfs-utils
     enabled: true
     state: started
 
 - name: Enable AUTOFS service
-  ansible.builtin.service:
+  service:
     name: autofs
     enabled: true
     state: started

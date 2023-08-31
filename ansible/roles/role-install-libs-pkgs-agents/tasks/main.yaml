@@ -1,14 +1,8 @@
 ---
 
-
-
 - name: Install dependencies for RedHat
   include_tasks: install_rhel_deps.yaml
   when: ansible_os_family == "RedHat"
-
-# - name: Install dependencies for SUSE
-#   include_tasks: install_suse_deps.yaml
-#   when: ansible_os_family == "Suse"
 
 - name: Check if AWS CLI is available
   include_tasks: common/check_aws_cli.yaml
