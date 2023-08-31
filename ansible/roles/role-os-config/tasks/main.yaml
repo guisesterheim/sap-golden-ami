@@ -13,7 +13,7 @@
   include_tasks: common/set_timezone.yaml
 
 - name: Set tuned
-  include_tasks: common/set_tuned_hana.yaml
+  include_tasks: common/set_tuned.yaml
 
 - name: Set UUIDD
   include_tasks: common/set_uuidd.yaml
