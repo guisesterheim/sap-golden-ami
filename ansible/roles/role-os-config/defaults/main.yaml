@@ -6,3 +6,4 @@ aws_installer_dir: /tmp/aws
 
 grub_file_path: /etc/default/grub
 grub_bkp_file_path: /etc/default/grub.bkp
+grub_clocksource_string: clocksource=tsc
