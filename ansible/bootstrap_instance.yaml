@@ -4,5 +4,5 @@
   become: true
   hosts: localhost
   roles:
-    - role: role-pkg-mgr-dependencies
+    - role: role-install-libs-pkgs-agents
     - role: role-os-config
