@@ -48,7 +48,6 @@ rhel_packages:
   - resource-agents-sap
   - resource-agents-sap-hana
   - sap-cluster-connector
-  - saptune
   - jq
   - net-tools
 
