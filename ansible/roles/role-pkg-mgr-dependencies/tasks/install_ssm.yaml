@@ -1,4 +1,5 @@
 ---
 
-- include_tasks: rhel/install_ssm_rhel.yaml
+- name: Install SSM for RedHat
+  include_tasks: rhel/install_ssm_rhel.yaml
   when: ansible_os_family == "RedHat"
