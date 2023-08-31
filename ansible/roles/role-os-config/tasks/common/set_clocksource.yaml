@@ -8,10 +8,10 @@
     group: root
     mode: '0644'
 
-- name: Replace between the expressions (requires Ansible >= 2.4)
-  ansible.builtin.replace:
+- name: Replace GRUB_CMDLINE_LINUX
+  replace:
     path: "{{ grub_file_path }}"
-    regexp: '^(.*GRUB_CMDLINE_LINUX*.)$'
+    regexp: '^(.*GRUB_CMDLINE_LINUX.*)$'
     replace: '# \1 AAAA'
 
 # - name: Check if clocksource is set in {{ grub_file_path }} file
