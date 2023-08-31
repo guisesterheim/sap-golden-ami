@@ -13,7 +13,8 @@
   register: grub_clocksource
 
 - name: debug
-  msg: "{{ grub_clocksource }}"
+  debug:
+    msg: "{{ grub_clocksource }}"
 
 - name: Append clocksource=tsc to existing line of GRUB_CMDLINE_LINUX commands
   command: sed -i '/GRUB_CMDLINE_LINUX/ s|"| {{ grub_clocksource_string }}"|2' {{ grub_file_path }}
