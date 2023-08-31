@@ -11,6 +11,7 @@
 - name: Check if clocksource is set in {{ grub_file_path }} file
   command: cat {{ grub_file_path }} | grep -c "{{ grub_clocksource_string }}"
   register: grub_clocksource
+  ignore_errors: true
 
 - name: debug
   debug:
