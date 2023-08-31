@@ -5,5 +5,4 @@
   hosts: localhost
   roles:
     - role: role-pkg-mgr-dependencies
-    - role: role-aws-sap-data-provider
     - role: role-os-config

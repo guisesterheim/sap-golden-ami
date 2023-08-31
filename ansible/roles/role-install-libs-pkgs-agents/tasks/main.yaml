@@ -15,3 +15,7 @@
 
 - name: Install AWS SSM
   include_tasks: install_ssm.yaml
+
+- name: Install AWS SAP Data Provider for RedHat
+  include_tasks: rhel/install_data_provider_rhel.yaml
+  when: ansible_os_family == "RedHat"
