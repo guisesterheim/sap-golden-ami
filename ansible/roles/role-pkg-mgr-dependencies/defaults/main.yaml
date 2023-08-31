@@ -1,5 +1,7 @@
 ---
 
+aws_installer_dir: /tmp/aws
+
 # REDHAT (RHEL) RELATED VARIABLES
 rhel_packages:
   - python3

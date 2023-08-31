@@ -25,3 +25,8 @@
   shell: "{{ aws_installer_dir }}/aws/install --update --bin-dir /usr/bin"
   register: cli_install_output
   ignore_errors: yes
+
+- name: Cleanup installer files
+  file:
+    path: "{{ aws_installer_dir }}"
+    state: absent
