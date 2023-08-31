@@ -10,7 +10,7 @@
 
 - name: Append clocksource=tsc to existing list of GRUB_CMDLINE_LINUX commands
   lineinfile:
-    path: "{{ role_path }}/files/file_path"
+    path: "{{ grub_file_path }}"
     backrefs: yes
     regexp: "^(.*GRUB_CMDLINE_LINUX=.*)$"
     line: '\1, clocksource=tsc'
