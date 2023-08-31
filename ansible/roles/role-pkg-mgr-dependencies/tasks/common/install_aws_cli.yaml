@@ -19,7 +19,7 @@
     dest: "{{ aws_installer_dir }}"
 
 - name: Remove existing AWS installation
-  include_tasks: remove_aws_cli.yml
+  include_tasks: remove_aws_cli.yaml
   
 - name: Install AWS CLI
   shell: "{{ aws_installer_dir }}/aws/install --update --bin-dir /usr/bin"
