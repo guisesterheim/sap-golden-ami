@@ -13,7 +13,7 @@
 
 - name: Copy a tuned.conf from /usr/lib into {{ tuned_folder_path }}
   copy:
-    src: "{{ grub_file_path }}"
+    src: "{{ tuned_folder_path }}"
     dest: "{{ tuned_file_full_path }}"
     owner: root
     group: root

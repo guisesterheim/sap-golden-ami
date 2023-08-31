@@ -13,5 +13,6 @@ sap_conf_configs:
   - kernel.sem=1250 256000 100 1024
   - vm.max_map_count=2000000
 
+original_tuned_file_full_path: /usr/lib/tuned/sap-hana/tuned.conf
 tuned_folder_path: /etc/tuned/sap-hana
 tuned_file_full_path: "{{ tuned_folder_path }}/tuned.conf"
