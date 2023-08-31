@@ -1,0 +1,4 @@
+- sysctl --system | tee -a $SSM_LOG_FILE
+- tuned --daemon | tee -a $SSM_LOG_FILE
+- tuned-adm profile sap-netweaver | tee -a $SSM_LOG_FILE
+- tuned-adm profile | grep "Current active profile " | tee -a $SSM_LOG_FILE

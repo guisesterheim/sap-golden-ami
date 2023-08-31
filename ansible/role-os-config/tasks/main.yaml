@@ -1,0 +1,13 @@
+---
+
+- name: Enable NFS
+  include_tasks: common/enable_nfs.yaml
+
+- name: Set clock source
+  include_tasks: common/set_clocksource.yaml
+
+# - name: Set timezone
+#   include_tasks: common/set_timezone.yaml
+
+# - name: Set sap.conf
+#   include_tasks: common/set_sap_conf.yaml

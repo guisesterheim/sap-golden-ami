@@ -1,0 +1,9 @@
+---
+
+- name: Install packages, data provider and configure Operating System
+  become: true
+  hosts: all
+  roles:
+    - role: role-pkg-mgr-dependencies
+    - role: role-aws-sap-data-provider
+    - role: role-os-config

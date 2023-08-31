@@ -1,0 +1,9 @@
+*HANA:*
+echo "`date` - Apply saptune HANA profile" | tee -a $SSM_LOG_FILE
+- systemctl start tuned | tee -a $SSM_LOG_FILE
+- systemctl enable tuned | tee -a $SSM_LOG_FILE
+- mkdir /etc/tuned/sap-hana | tee -a $SSM_LOG_FILE
+- cp /usr/lib/tuned/sap-hana/tuned.conf /etc/tuned/sap-hana/tuned.conf | tee -a $SSM_LOG_FILE
+- sed -i '/force_latency/ c\force_latency=70' /etc/tuned/sap-hana/tuned.conf | tee -a $SSM_LOG_FILE
+- tuned-adm profile sap-hana | tee -a $SSM_LOG_FILE
+- tuned-adm active | tee -a $SSM_LOG_FILE

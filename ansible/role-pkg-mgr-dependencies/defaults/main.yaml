@@ -1,0 +1,75 @@
+---
+
+# REDHAT (RHEL) RELATED VARIABLES
+rhel_packages:
+  - python3
+  - python2
+  - unzip
+  - compat-sap-c++-5 
+  - compat-sap-c++-6 
+  - compat-sap-c++-7
+  - compat-sap-c++-9
+  - xfsprogs
+  - autofs
+  - gcc
+  - glibc.x86_64
+  - nvme-cli
+  - tuned-profiles-sap
+  - tuned-profiles-sap-hana
+  - sapconf
+  - libatomic
+  - libnsl
+  - uuidd
+  - tcsh
+  - bind-utils
+  - psmisc
+  - expect
+  - graphviz
+  - iptraf-ng
+  - krb5-workstation 
+  - libcanberra-gtk2
+  - libibverbs
+  - libicu
+  - libpng12
+  - libssh2
+  - lm_sensors
+  - numactl
+  - PackageKit-gtk3-module
+  - xorg-x11-xauth
+  - libaio
+  - libtool-ltdl
+  - lvm2
+  - nfs-utils
+  - sysstat
+  - kernel
+  - chrony
+  - corosync
+  - pcs
+  - pacemaker
+  - fence-agents-aws
+  - resource-agents
+  - resource-agents-sap
+  - resource-agents-sap-hana
+  - sap-cluster-connector
+  - saptune
+  - jq
+  - net-tools
+
+rhel_group_packages:
+  - "@Server"
+
+oel_packages:
+  - nvme-cli
+  - uuidd
+  - oracle-database-preinstall-19c
+  - xauth
+  - xorg-x11-utils
+  - libnsl
+  - make
+  - xorg-x11-apps
+  - xterm
+  - xhost
+  - tcsh
+  - unzip
+  - jq
+  - net-tools

@@ -1,0 +1,3 @@
+- yum install -y uuidd | tee -a $SSM_LOG_FILE
+- chkconfig uuidd on | tee -a $SSM_LOG_FILE
+- service uuidd start | tee -a $SSM_LOG_FILE

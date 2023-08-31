@@ -1,0 +1,20 @@
+---
+
+- name: Copy a new {{ grub_file_path }} file into place, backing up the original
+  copy:
+    src: "{{ grub_file_path }}"
+    dest: "{{ grub_bkp_file_path }}"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Append clocksource=tsc to existing list of GRUB_CMDLINE_LINUX commands
+  lineinfile:
+    path: "{{ role_path }}/files/file_path"
+    backrefs: yes
+    regexp: "^(.*GRUB_CMDLINE_LINUX=.*)$"
+    line: '\1, clocksource=tsc'
+# - sed -i '/GRUB_CMDLINE_LINUX/ s|"| clocksource=tsc"|2' /etc/default/grub | tee -a $SSM_LOG_FILE
+
+- name: Make Grub config
+  command: grub2-mkconfig -o /boot/grub2/grub.cfg

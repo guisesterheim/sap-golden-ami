@@ -1,0 +1,8 @@
+---
+
+default_instance_timezone: America/Chicago
+timezone: "{{ input_custom_timezone | default(default_instance_timezone) }}"
+aws_installer_dir: /tmp/aws
+
+grub_file_path: /etc/default/grub
+grub_bkp_file_path: /etc/default/grub.bkp
