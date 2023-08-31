@@ -7,3 +7,8 @@ aws_installer_dir: /tmp/aws
 grub_file_path: /etc/default/grub
 grub_bkp_file_path: /etc/default/grub.bkp
 grub_clocksource_string: clocksource=tsc
+
+sap_conf_full_path: "/etc/sysctl.d/sap.conf"
+sap_conf_configs:
+  - kernel.sem=1250 256000 100 1024
+  - vm.max_map_count=2000000

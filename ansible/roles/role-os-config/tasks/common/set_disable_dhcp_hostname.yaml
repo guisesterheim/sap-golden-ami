@@ -1,2 +1,0 @@
-- sed -i '/DHCLIENT_SET_HOSTNAME/ c\DHCLIENT_SET_HOSTNAME="no"' /etc/sysconfig/network/dhcp | tee -a $SSM_LOG_FILE
-- service network restart | tee -a $SSM_LOG_FILE
