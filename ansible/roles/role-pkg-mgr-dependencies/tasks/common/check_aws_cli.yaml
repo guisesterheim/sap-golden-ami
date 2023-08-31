@@ -10,5 +10,5 @@
   ignore_errors: yes
 
 - name: Install AWS CLI
-  include_tasks: install_aws_cli.yml
+  include_tasks: install_aws_cli.yaml
   when: prereq_aws is failed

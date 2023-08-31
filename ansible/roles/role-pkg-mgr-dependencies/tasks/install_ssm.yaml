@@ -1,0 +1,4 @@
+---
+
+- include_tasks: rhel/install_ssm_rhel.yml
+  when: ansible_os_family == "RedHat"

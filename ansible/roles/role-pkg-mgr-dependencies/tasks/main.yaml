@@ -14,4 +14,4 @@
   include_tasks: common/check_aws_cli.yaml
 
 - name: Install AWS SSM
-  include_tasks: common/install_ssm.yaml
+  include_tasks: install_ssm.yaml
