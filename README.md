@@ -11,6 +11,9 @@ Code covering:
 - Set UUIDD
 
 
+while updating tuned. There's two profiles: sap-hana and sap-netweaver. Do we need two different images because of that? Or do we prefer one of them over the other?
+
+
 ## Userdata
 
 ansible_playbook_folder="/home/ec2-user/sap-golden-ami"

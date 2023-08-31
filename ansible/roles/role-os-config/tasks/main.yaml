@@ -12,5 +12,8 @@
 - name: Set timezone
   include_tasks: common/set_timezone.yaml
 
-- name: Set tuned for HANA
+- name: Set tuned
   include_tasks: common/set_tuned_hana.yaml
+
+- name: Set UUIDD
+  include_tasks: common/set_uuidd.yaml

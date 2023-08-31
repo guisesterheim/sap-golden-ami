@@ -1,3 +1,10 @@
-- yum install -y uuidd | tee -a $SSM_LOG_FILE
-- chkconfig uuidd on | tee -a $SSM_LOG_FILE
-- service uuidd start | tee -a $SSM_LOG_FILE
+-- 
+
+- name: Checking config for UUIDD
+  command: chkconfig uuidd on
+
+- name: Enable UUIDD service
+  service:
+    name: uuidd
+    enabled: true
+    state: started
