@@ -13,6 +13,3 @@
     fstype: efs
     opts: "_netdev,tls,accesspoint={{ GLOBAL_EFS_ACCESS_POINT_ID }}"
     state: mounted
-
-# - name: Ensure EFS volume is mounted
-#   command: "mount -t efs -o tls,accesspoint={{ GLOBAL_EFS_ACCESS_POINT_ID }} {{ GLOBAL_EFS_ID }} {{ sapmnt_dir }}"

@@ -1,5 +1,9 @@
 # Instance Startup
 
+Code covering:
+- Tuned (sap-hana for HANA and sap-netweaver for Netweaver)
+- EFS mount
+
 ## Examples how to use
 ```
 ansible_playbook_folder="/home/ec2-user/sap-golden-ami"

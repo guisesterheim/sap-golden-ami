@@ -1,0 +1,9 @@
+---
+
+- name: Ensure users are created
+  user:
+    name: "{{ item.name }}"
+    state: present
+    uid: "{{ item.uid }}"
+    groups: "{{ item.groups }}"
+  loop: "{{ users_to_create }}"

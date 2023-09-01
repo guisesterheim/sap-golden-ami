@@ -1,0 +1,7 @@
+---
+
+- name: Create groups
+  include_tasks: create_groups.yaml
+
+- name: Create users
+  include_tasks: create_users.yaml

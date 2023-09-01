@@ -1,0 +1,19 @@
+---
+
+groups_to_create:
+  - name: sapsys
+    gid: 200
+  - name: dba
+    gid: 201
+  - name: oper
+    gid: 202
+  - name: sapinst
+    gid: 1000
+
+users_to_create:
+  - name: daaadm
+    uid: 3098
+    groups: dba, oper
+  - name: sapadm
+    uid: 3099
+    groups: sapsys, sapinst

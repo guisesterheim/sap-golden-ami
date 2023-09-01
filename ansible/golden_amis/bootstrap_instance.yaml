@@ -6,3 +6,4 @@
   roles:
     - role: role-install-libs-pkgs-agents
     - role: role-os-params
+    - role: role-user-creation

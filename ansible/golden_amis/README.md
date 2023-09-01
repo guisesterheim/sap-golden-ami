@@ -4,6 +4,7 @@ Ansible code for SAP Golden AMI build - RedHat and OEL
 Code covering:
 - Installing packages
 - Installing AWS SAP data provider
+- Install EFS driver
 - Installing SSM
 - Installing AWS CLI
 - Enable NFS
@@ -12,7 +13,6 @@ Code covering:
 - Setting timezone
 - Set tuned
 - Set UUIDD
-
 
 while updating tuned. There's two profiles: sap-hana and sap-netweaver. Do we need two different images because of that? Or do we prefer one of them over the other?
 
