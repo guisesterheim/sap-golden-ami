@@ -13,7 +13,20 @@
   args:
     chdir: /tmp/efs-utils
 
-- name: Install amazon-efs-utils
-  yum:
-    name: "/tmp/efs-utils/build/amazon-efs-utils*rpm"
-    state: present
+- name: Find generated RPM file
+  find:
+    paths: /tmp/efs-utils/build
+    file_type: file
+    use_regex: yes
+    patterns:
+      - '^amazon-efs-utils_.*.rpm$'
+  register: found_rpm_file
+
+- name: List files
+  debug:
+    msg: "{{ found_rpm_file }}"
+
+# - name: Install amazon-efs-utils
+#   yum:
+#     name: "/tmp/efs-utils/build/amazon-efs-utils*rpm"
+#     state: present
