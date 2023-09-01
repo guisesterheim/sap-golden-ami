@@ -11,6 +11,7 @@
 - name: Make rpm
   make:
     chdir: /tmp/efs-utils
+    target: clean rpm
 
 - name: Install amazon-efs-utils
   yum:
