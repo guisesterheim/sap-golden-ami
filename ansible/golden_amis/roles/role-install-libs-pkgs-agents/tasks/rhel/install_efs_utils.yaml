@@ -23,7 +23,7 @@
   debug:
     msg: "{{ found_rpm_file }}"
 
-# - name: Install amazon-efs-utils
-#   yum:
-#     name: "/tmp/efs-utils/build/amazon-efs-utils*rpm"
-#     state: present
+- name: Install amazon-efs-utils
+  yum:
+    name: "{{ found_rpm_file[0].path }}"
+    state: present
