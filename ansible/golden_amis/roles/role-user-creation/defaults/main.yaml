@@ -8,12 +8,12 @@ groups_to_create:
   - name: oper
     gid: 202
   - name: sapinst
-    gid: 1000
+    gid: 203 # TODO: confirm which gid to use here
 
 users_to_create:
   - name: daaadm
     uid: 3098
-    groups: dba, oper
+    groups: dba, oper # TODO: confirm which groups to use here
   - name: sapadm
     uid: 3099
-    groups: sapsys, sapinst
+    groups: sapsys, sapinst # TODO: confirm which groups to use here
