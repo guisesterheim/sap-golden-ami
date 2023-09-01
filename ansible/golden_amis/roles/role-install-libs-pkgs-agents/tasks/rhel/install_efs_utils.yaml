@@ -19,7 +19,7 @@
     file_type: file
     use_regex: yes
     patterns:
-      - '^amazon-efs-utils_.*.rpm$'
+      - 'amazon-efs-utils*rpm'
   register: found_rpm_file
 
 - name: List files
