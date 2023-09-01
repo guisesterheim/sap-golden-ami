@@ -1,17 +1,5 @@
 ---
 
-- name: Show
-  debug:
-    msg: "{{ GLOBAL_AWS_REGION }}"
-
-- name: Show
-  debug:
-    msg: "{{ GLOBAL_EFS_ID }}"
-
-- name: Show
-  debug:
-    msg: "{{ GLOBAL_EFS_ACCESS_POINT_ID }}"
-
 - name: Ensure mount directory exists
   file:
     path: "{{ sapmnt_dir }}"
@@ -20,7 +8,7 @@
 
 - name: Ensure EFS volume is mounted.
   mount:
-    name: "{{ efs_mount_dir }}"
+    name: "{{ sapmnt_dir }}"
     src: "{{ GLOBAL_EFS_ACCESS_POINT_ID }}.{{ GLOBAL_EFS_ID }}.efs.{{ GLOBAL_AWS_REGION }}.amazonaws.com:/"
     fstype: nfs4
     opts: nfsvers=4.1

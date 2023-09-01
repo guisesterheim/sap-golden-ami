@@ -2,8 +2,9 @@
 
 ## Examples how to use
 ```
-sudo ansible-playbook $ansible_playbook_folder/ansible/bootstrap_instance.yaml \
-    --extra-vars "INPUT_AWS_REGION=ca-central-1 GLOBAL_EFS_ACCESS_POINT_ID=fsap-0c1d2bf56becd5232 INPUT_EFS_ID=fs-0d441fde456d83ac0"
+ansible_playbook_folder="/home/ec2-user/sap-golden-ami"
+sudo ansible-playbook $ansible_playbook_folder/ansible/instance_startup/instance_startup.yaml \
+    --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_APPLICATION_TYPE=HANA GLOBAL_EFS_ACCESS_POINT_ID=fsap-0c1d2bf56becd5232 INPUT_EFS_ID=fs-0d441fde456d83ac0"
 ```
 
 ## Userdata
