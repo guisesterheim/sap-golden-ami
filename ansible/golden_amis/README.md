@@ -13,6 +13,7 @@ Code covering:
 - Setting timezone
 - Set tuned
 - Set UUIDD
+- Creating users
 
 while updating tuned. There's two profiles: sap-hana and sap-netweaver. Do we need two different images because of that? Or do we prefer one of them over the other?
 
