@@ -25,5 +25,5 @@
 
 - name: Install amazon-efs-utils
   yum:
-    name: "{{ found_rpm_file[0].path }}"
+    name: "{{ found_rpm_file.files[0].path }}"
     state: present
