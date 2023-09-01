@@ -9,9 +9,9 @@
   command: git clone https://github.com/aws/efs-utils /tmp/efs-utils
 
 - name: Make rpm
-  make:
+  command: make clean rpm
+  args:
     chdir: /tmp/efs-utils
-    target: clean rpm
 
 - name: Install amazon-efs-utils
   yum:
