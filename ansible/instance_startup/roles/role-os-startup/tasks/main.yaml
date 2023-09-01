@@ -3,5 +3,5 @@
 - name: Set tuned
   include_tasks: common/set_tuned.yaml
 
-- name: Mount EFS
-  include_tasks: common/mount_efs.yaml
+# - name: Mount EFS
+#   include_tasks: common/mount_efs.yaml

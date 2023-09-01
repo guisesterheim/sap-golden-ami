@@ -55,6 +55,10 @@ rhel_packages:
   - sap-cluster-connector
   - jq
   - net-tools
+  - git
+  - rpm-build
+  - make
+  - ansible
 
 rhel_group_packages:
   - "@Server"

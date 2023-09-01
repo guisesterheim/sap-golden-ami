@@ -1,7 +1,7 @@
 ---
 
 - name: Install dependencies for RedHat
-  include_tasks: install_rhel_deps.yaml
+  include_tasks: rhel/install_deps.yaml
   when: ansible_os_family == "RedHat"
 
 - name: Check if AWS CLI is available
@@ -13,3 +13,6 @@
 - name: Install AWS SAP Data Provider for RedHat
   include_tasks: rhel/install_data_provider_rhel.yaml
   when: ansible_os_family == "RedHat"
+
+- name: Install EFS utils
+  include_tasks: rhel/install_efs_utils.yaml

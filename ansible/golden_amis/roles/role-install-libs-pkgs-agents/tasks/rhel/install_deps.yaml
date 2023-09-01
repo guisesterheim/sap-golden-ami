@@ -4,13 +4,11 @@
   yum:
     name: "{{ rhel_packages }}"
     state: present
-  register: log_output
 
 - name: Install YUM dependencies group packages
   yum:
     name: "{{ rhel_group_packages }}"
     state: present
-  register: log_output
 
 - name: Update all packages
   yum:

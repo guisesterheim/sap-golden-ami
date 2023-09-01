@@ -1,0 +1,13 @@
+---
+
+- name: Clone efs-utils repo
+  command: git clone https://github.com/aws/efs-utils
+
+- name: Make rpm
+  make:
+    chdir: efs-utils
+
+- name: Install amazon-efs-utils
+  yum:
+    name: "build/amazon-efs-utils*rpm"
+    state: present
