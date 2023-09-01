@@ -1,0 +1,7 @@
+---
+
+- name: Configure operating system
+  become: true
+  hosts: localhost
+  roles:
+    - role: role-os-startup

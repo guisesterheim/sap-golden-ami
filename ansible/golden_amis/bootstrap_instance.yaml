@@ -5,4 +5,4 @@
   hosts: localhost
   roles:
     - role: role-install-libs-pkgs-agents
-    - role: role-os-config
+    - role: role-os-params

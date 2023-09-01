@@ -1,0 +1,10 @@
+---
+
+- name: Create and activate sap-netweaver profile
+  command: "{{ item }}"
+  loop:
+    - sysctl --system
+    - tuned --daemon
+    - tuned-adm profile sap-netweaver
+    - tuned-adm active
+  when: GLOBAL_APPLICATION_TYPE == "NETWEAVER"

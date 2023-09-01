@@ -1,0 +1,7 @@
+---
+
+original_tuned_file_full_path: /usr/lib/tuned/sap-hana/tuned.conf
+tuned_folder_path: /etc/tuned/sap-hana
+tuned_file_full_path: "{{ tuned_folder_path }}/tuned.conf"
+
+sapmnt_dir: /sapmnt

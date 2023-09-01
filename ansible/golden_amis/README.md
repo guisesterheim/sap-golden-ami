@@ -6,8 +6,11 @@ Code covering:
 - Installing AWS SAP data provider
 - Installing SSM
 - Installing AWS CLI
-- Setting timezone
+- Enable NFS
+- Set clocksource
 - Setting /etc/sysctl.d/sap.conf
+- Setting timezone
+- Set tuned
 - Set UUIDD
 
 
@@ -21,4 +24,4 @@ rm -rf $ansible_playbook_folder
 
 sudo yum install -y git ansible
 git clone https://github.com/guisesterheim/sap-golden-ami.git $ansible_playbook_folder
-sudo ansible-playbook $ansible_playbook_folder/ansible/bootstrap_instance.yaml
+sudo ansible-playbook $ansible_playbook_folder/ansible/golden_amis/bootstrap_instance.yaml
