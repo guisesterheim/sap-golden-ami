@@ -1,5 +1,10 @@
 ---
 
+- name: Make sure efs-utils is not present
+  file:
+    path: /tmp/efs-utils
+    state: absent
+
 - name: Clone efs-utils repo
   command: git clone https://github.com/aws/efs-utils /tmp/efs-utils
 
