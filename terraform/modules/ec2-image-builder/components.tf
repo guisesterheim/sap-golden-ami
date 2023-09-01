@@ -1,11 +1,11 @@
 resource "aws_s3_object" "this" {
-  for_each = fileset("/files/", "*")
+  for_each = fileset(path.module, "files/*")
 
   bucket = var.s3_buckets_ec2_image_builder_logs
-  key    = "/files/${each.value}"
-  source = "/files/${each.value}"
+  key    = "/${each.value}"
+  source = "${path.module}/${each.value}"
   # If the md5 hash is different it will re-upload
-  etag = filemd5("/files/${each.value}")
+  etag = filemd5("${path.module}/${each.value}")
 }
 
 resource "aws_imagebuilder_component" "custom_ansible" {
