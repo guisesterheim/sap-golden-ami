@@ -63,18 +63,79 @@ rhel_packages:
 rhel_group_packages:
   - "@Server"
 
-oel_packages:
-  - nvme-cli
-  - uuidd
+oel_yum_packages:
+  - python3 
+  - python2 
+  - unzip 
+  - xfsprogs 
+  - autofs 
+  - gcc 
+  - glibc.x86_64 
+  - nvme-cli 
+  - libatomic 
+  - libnsl 
+  - uuidd 
+  - tcsh 
+  - bind-utils 
+  - psmisc 
+  - expect 
+  - graphviz 
+  - iptraf-ng 
+  - krb5-workstation 
+  - libcanberra-gtk2 
+  - libibverbs 
+  - libicu 
+  - libpng12 
+  - libssh2
+  - lm_sensors 
+  - numactl 
+  - PackageKit-gtk3-module 
+  - xorg-x11-xauth 
+  - libaio 
+  - libtool-ltdl 
+  - lvm2 
+  - nfs-utils 
+  - sysstat 
+  - kernel 
+  - chrony 
+  - jq 
+  - net-tools 
+  - git 
+  - rpm-build 
+  - make 
+  - ansible
+
+oel_dnf_packages:
   - oracle-database-preinstall-19c
-  - xauth
-  - xorg-x11-utils
-  - libnsl
+  - bc
+  - binutils
+  - elfutils-libelf
+  - elfutils-libelf-devel
+  - fontconfig-devel
+  - glibc
+  - glibc-devel
+  - ksh
+  - libaio
+  - libaio-devel
+  - libXrender
+  - libXrender-devel
+  - libX11
+  - libXau
+  - libXi
+  - libXtst
+  - libgcc
+  - librdmacm-devel
+  - libstdc++
+  - libstdc++-devel
+  - libxcb
   - make
-  - xorg-x11-apps
-  - xterm
-  - xhost
-  - tcsh
-  - unzip
-  - jq
   - net-tools
+  - nfs-utils
+  - targetcli
+  - smartmontools
+  - sysstat
+  - unixODBC
+  - libnsl
+  - libnsl.i686
+  - libnsl2
+  - libnsl2.i686

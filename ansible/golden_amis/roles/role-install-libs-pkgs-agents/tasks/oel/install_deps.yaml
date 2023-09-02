@@ -2,12 +2,22 @@
 
 - name: Install YUM dependencies
   yum:
-    name: "{{ oel_packages }}"
+    name: "{{ oel_yum_packages }}"
     state: present
-  register: log_output
+
+- name: Install DNF dependencies
+  dnf:
+    name: "{{ oel_dnf_packages }}"
+    state: present
 
 - name: Update all packages
   yum:
+    name: '*'
+    state: latest
+  ignore_errors: true
+
+- name: Update all packages
+  dnf:
     name: '*'
     state: latest
   ignore_errors: true
