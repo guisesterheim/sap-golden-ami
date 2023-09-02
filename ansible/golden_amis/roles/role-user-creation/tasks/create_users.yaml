@@ -6,7 +6,7 @@
     state: present
     uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
-  loop: "{{ sap_users_to_create }}"
+  loop: "{{ users_to_create }}"
 
 - name: Ensure users are created
   user:
