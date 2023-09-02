@@ -10,13 +10,13 @@
     name: "{{ oel_dnf_packages }}"
     state: present
 
-- name: Update all packages
+- name: Update all packages with YUM
   yum:
     name: '*'
     state: latest
   ignore_errors: true
 
-- name: Update all packages
+- name: Update all packages with DNF
   dnf:
     name: '*'
     state: latest
