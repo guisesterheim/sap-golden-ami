@@ -8,12 +8,14 @@
 
 - name: Set sap.conf
   include_tasks: common/set_sap_conf.yaml
+  when: ansible_distribution == "RedHat"
 
 - name: Set timezone
   include_tasks: common/set_timezone.yaml
 
 - name: Set tuned
   include_tasks: common/set_tuned.yaml
+  when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
 
 - name: Set UUIDD
   include_tasks: common/set_uuidd.yaml
