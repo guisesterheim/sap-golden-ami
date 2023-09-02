@@ -14,7 +14,7 @@
   include_tasks: common/set_timezone.yaml
 
 - name: Set tuned
-  include_tasks: common/set_tuned.yaml
+  include_tasks: rhel/set_tuned.yaml
   when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
 
 - name: Set UUIDD
