@@ -18,4 +18,10 @@ resource "aws_imagebuilder_component" "custom_ansible" {
   depends_on = [
     aws_s3_object.this
   ]
+
+  lifecycle {
+    replace_triggered_by = [
+      aws_s3_object.this
+    ]
+  }
 }
