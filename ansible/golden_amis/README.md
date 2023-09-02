@@ -13,7 +13,9 @@ Code covering:
 - Setting timezone
 - Set tuned
 - Set UUIDD
+- Creating groups
 - Creating users
+- For OEL specific: Everything from here https://oracle-base.com/articles/19c/oracle-db-19c-installation-on-oracle-linux-8 until "Additional Setup"
 
 while updating tuned. There's two profiles: sap-hana and sap-netweaver. Do we need two different images because of that? Or do we prefer one of them over the other?
 

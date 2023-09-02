@@ -9,8 +9,9 @@ resource "aws_s3_object" "this" {
 }
 
 resource "aws_imagebuilder_component" "custom_ansible" {
-  name       = "RunAnsibleCustomScript"
+  name       = "${var.operating_system}-RunAnsibleForGoldenAMI"
   platform   = "Linux"
+  supported_os_versions = ["Red Hat Enterprise Linux 7", "Oracle Enterprise Linux 8"]
   uri        = "s3://${var.s3_buckets_ec2_image_builder_logs}/files/call_ansible.yaml"
   version    = "1.0.0"
   kms_key_id = var.kms_key_arn
@@ -24,4 +25,9 @@ resource "aws_imagebuilder_component" "custom_ansible" {
       aws_s3_object.this
     ]
   }
+
+  tags = merge({
+    "Name" = "${var.operating_system}-Infra"
+    },
+  var.tags)
 }
