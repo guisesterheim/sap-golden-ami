@@ -5,4 +5,4 @@
     name: "{{ item.name }}"
     state: present
     gid: "{{ item.gid }}"
-  loop: "{{ groups_to_create }}"
+  loop: "{{ sap_groups_to_create }}"

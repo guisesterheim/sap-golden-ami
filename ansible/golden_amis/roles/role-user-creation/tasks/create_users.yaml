@@ -6,4 +6,13 @@
     state: present
     uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
-  loop: "{{ users_to_create }}"
+  loop: "{{ sap_users_to_create }}"
+
+- name: Ensure users are created
+  user:
+    name: "{{ item.name }}"
+    state: present
+    uid: "{{ item.uid }}"
+    group: "{{ item.primary_group }}"
+    groups: "{{ item.groups }}"
+  loop: "{{ users_to_create_with_primary_group }}"

@@ -17,6 +17,7 @@ Code covering:
 
 while updating tuned. There's two profiles: sap-hana and sap-netweaver. Do we need two different images because of that? Or do we prefer one of them over the other?
 
+TODO: https://oracle-base.com/articles/19c/oracle-db-19c-installation-on-oracle-linux-8 - start from "Additional Setup"
 
 ## Userdata
 

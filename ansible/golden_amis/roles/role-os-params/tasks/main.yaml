@@ -14,13 +14,13 @@
   include_tasks: common/set_timezone.yaml
   when: ansible_distribution != "OracleLinux"
 
-- name: Set timezone for OEL
-  include_tasks: oel/set_timezone.yaml
-  when: ansible_distribution == "OracleLinux"
-
 - name: Set tuned
   include_tasks: common/set_tuned.yaml
   when: ansible_distribution == "RedHat"
 
 - name: Set UUIDD
   include_tasks: common/set_uuidd.yaml
+
+- name: Apply OEL specific changes
+  include_tasks: oel/apply_oel_specific_changes.yaml
+  when: ansible_distribution == "OracleLinux"

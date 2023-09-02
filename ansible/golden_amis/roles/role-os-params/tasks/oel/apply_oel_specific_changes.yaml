@@ -1,0 +1,10 @@
+---
+
+- name: Set timezone for OEL
+  include_tasks: set_timezone.yaml
+  
+- name: Set SELINUX for OEL
+  include_tasks: set_selinux.yaml
+  
+- name: Disable firewall for OEL
+  include_tasks: disable_firewall.yaml
