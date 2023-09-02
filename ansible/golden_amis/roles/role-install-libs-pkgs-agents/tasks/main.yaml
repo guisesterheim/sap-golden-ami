@@ -3,25 +3,25 @@
 - name: Distribution
   debug: msg="{{ ansible_distribution }}"
 
-- name: Distribution version
-  debug: msg="{{ ansible_distribution_version}}"
-
-- name: Distribution major version
-  debug: msg="{{ ansible_distribution_major_version }}"
-  
 - name: Install dependencies for RedHat
   include_tasks: rhel/install_deps.yaml
-  when: ansible_os_family == "RedHat"
+  when: ansible_distribution == "RedHat"
+
+- name: Install dependencies for OEL
+  include_tasks: oel/install_deps.yaml
+  when: ansible_distribution == "OracleLinux"
 
 - name: Check if AWS CLI is available
   include_tasks: common/check_aws_cli.yaml
 
-- name: Install AWS SSM
-  include_tasks: install_ssm.yaml
+- name: Install SSM
+  include_tasks: rhel/install_ssm.yaml
+  when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
 
 - name: Install AWS SAP Data Provider for RedHat
   include_tasks: rhel/install_data_provider_rhel.yaml
-  when: ansible_os_family == "RedHat"
+  when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
 
 - name: Install EFS utils
   include_tasks: rhel/install_efs_utils.yaml
+  when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
