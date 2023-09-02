@@ -12,6 +12,11 @@
 
 - name: Set timezone
   include_tasks: common/set_timezone.yaml
+  when: ansible_distribution != "OracleLinux"
+
+- name: Set timezone for OEL
+  include_tasks: oel/set_timezone.yaml
+  when: ansible_distribution == "OracleLinux"
 
 - name: Set tuned
   include_tasks: rhel/set_tuned.yaml
