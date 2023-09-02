@@ -1,5 +1,5 @@
 ---
 
-- name: Set instance timezone to {{ timezone }}
+- name: Set instance timezone
   timezone:
     name: "{{ timezone }}"
