@@ -20,7 +20,7 @@
 
 - name: Set tuned
   include_tasks: common/set_tuned.yaml
-  when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
+  when: ansible_distribution == "RedHat"
 
 - name: Set UUIDD
   include_tasks: common/set_uuidd.yaml
