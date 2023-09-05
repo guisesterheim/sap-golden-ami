@@ -6,7 +6,7 @@ rhel_data_provider_url: https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amaz
 rhel_data_provider_installer_dest_path: /tmp/data_provider_rhel.rpm
 
 # REDHAT (RHEL) RELATED VARIABLES
-rhel_packages:
+rhel_8_6_packages:
   - python3
   - python2
   - unzip
@@ -58,7 +58,7 @@ rhel_packages:
   - git
   - rpm-build
   - make
-  - ansible
+  - ansible-core
 
 rhel_group_packages:
   - "@Server"

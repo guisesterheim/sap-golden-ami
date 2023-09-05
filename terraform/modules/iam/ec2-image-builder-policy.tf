@@ -46,7 +46,7 @@ data "aws_iam_policy_document" "image_builder" {
     actions = [
       "s3:PutObject"
     ]
-    resources = ["arn:aws:s3:::${var.s3_buckets_ec2_image_builder_logs}/*"]
+    resources = ["arn:aws:s3:::${var.s3_bucket_ec2_image_builder_logs}/*"]
   }
 
   statement {

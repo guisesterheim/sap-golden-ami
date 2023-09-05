@@ -11,9 +11,9 @@ phases:
             - linux_distro=$(rpm -qf /etc/redhat-release)
             - if [[ $linux_distro == *"oraclelinux"* ]]; then
             -   sudo dnf install -y epel-release
-            -   sudo dnf install ansible -y
+            -   sudo dnf install -y git ansible
             - else
-            -   sudo yum install -y git ansible
+            -   sudo yum install -y git ansible-core
             - fi
       - name: DownloadPlaybook
         action: ExecuteBash
