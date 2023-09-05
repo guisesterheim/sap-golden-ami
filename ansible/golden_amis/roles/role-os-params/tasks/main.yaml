@@ -7,7 +7,7 @@
   include_tasks: common/set_clocksource.yaml
 
 - name: Set sap.conf
-  include_tasks: common/set_sap_conf.yaml
+  include_tasks: rhel/set_sap_conf.yaml
   when: ansible_distribution == "RedHat"
 
 - name: Set timezone
