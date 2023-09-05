@@ -18,7 +18,7 @@ variable "kms_key_arn" {
   type        = string
 }
 
-variable "s3_buckets_ec2_image_builder_logs" {
+variable "s3_bucket_ec2_image_builder_logs" {
   description = "S3 buckets to allow access into"
   type        = string
 }

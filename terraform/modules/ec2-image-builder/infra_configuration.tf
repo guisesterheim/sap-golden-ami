@@ -8,7 +8,7 @@ resource "aws_imagebuilder_infrastructure_configuration" "this" {
 
   logging {
     s3_logs {
-      s3_bucket_name = var.s3_buckets_ec2_image_builder_logs
+      s3_bucket_name = var.s3_bucket_ec2_image_builder_logs
       s3_key_prefix  = "ec2-image-builder-logs/Golden-Image-Builder-${var.operating_system}"
     }
   }
