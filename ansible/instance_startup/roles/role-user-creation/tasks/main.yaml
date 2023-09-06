@@ -1,5 +1,8 @@
 ---
 
+- name: Include users and groups for "{{ INPUT_ENVIRONMENT }}" environment
+  include_vars: "{{ INPUT_ENVIRONMENT }}_users.yaml"
+
 - name: Create groups
   include_tasks: create_groups.yaml
 

@@ -1,0 +1,72 @@
+---
+
+default_groups_to_create:
+  - name: sapsys
+    gid: 200
+  - name: dba
+    gid: 201
+  - name: oper
+    gid: 202
+  - name: sapinst
+    gid: 2000
+  - name: oinstall
+    gid: 54321
+
+sidadm_groups_to_create:
+  - name: sbhadm
+    gid: 2002
+
+default_users_to_create:
+  - name: daaadm
+    uid: 3098
+    groups: sapsys
+  - name: sapadm
+    uid: 3099
+    groups: sapsys
+
+default_users_to_create_with_primary_group:
+  - name: oracle
+    uid: 54321
+    primary_group: oinstall
+    groups: dba, oper
+
+sidadm_users_to_create:
+  - name: s70adm
+    uid: 4370
+    groups: sapsys, sapinst
+  - name: oras70
+    uid: 3370
+    groups: dba, oper
+  - name: s71adm
+    uid: 4371
+    groups: sapsys, sapinst
+  - name: oras71
+    uid: 3371
+    groups: dba, oper
+  - name: s72adm
+    uid: 4372
+    groups: sapsys, sapinst
+  - name: oras72
+    uid: 3372
+    groups: dba, oper
+  - name: s73adm
+    uid: 4373
+    groups: sapsys, sapinst
+  - name: oras73
+    uid: 3373
+    groups: dba, oper
+  - name: s76adm
+    uid: 4376
+    groups: sapsys, sapinst
+  - name: oras76
+    uid: 3376
+    groups: dba, oper
+  - name: s77adm
+    uid: 4377
+    groups: sapsys, sapinst
+  - name: oras77
+    uid: 3377
+    groups: dba, oper
+  - name: sbhadm
+    uid: 4377
+    groups: sapsys, sbhadm

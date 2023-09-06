@@ -1,18 +1,26 @@
 ---
 
-- name: Ensure users are created
+- name: Ensure default users are created
   user:
     name: "{{ item.name }}"
     state: present
     uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
-  loop: "{{ users_to_create }}"
+  loop: "{{ default_users_to_create }}"
 
-- name: Ensure users are created
+- name: Ensure default users are created
   user:
     name: "{{ item.name }}"
     state: present
     uid: "{{ item.uid }}"
     group: "{{ item.primary_group }}"
     groups: "{{ item.groups }}"
-  loop: "{{ users_to_create_with_primary_group }}"
+  loop: "{{ default_users_to_create_with_primary_group }}"
+
+- name: Ensure sidadm users are created
+  user:
+    name: "{{ item.name }}"
+    state: present
+    uid: "{{ item.uid }}"
+    groups: "{{ item.groups }}"
+  loop: "{{ sidadm_users_to_create }}"

@@ -1,8 +1,15 @@
 ---
 
-- name: Ensure groups are created
+- name: Ensure default groups are created
   group:
     name: "{{ item.name }}"
     state: present
     gid: "{{ item.gid }}"
-  loop: "{{ groups_to_create }}"
+  loop: "{{ default_groups_to_create }}"
+
+- name: Ensure sidadm groups are created
+  group:
+    name: "{{ item.name }}"
+    state: present
+    gid: "{{ item.gid }}"
+  loop: "{{ sidadm_groups_to_create }}"
