@@ -7,7 +7,7 @@
   include_tasks: disable_ksm.yaml
 
 - name: Disable SELINUX
-  include_tasks: disable_setlinux.yaml
+  include_tasks: disable_selinux.yaml
 
 - name: Enable TSX
   include_tasks: enable_tsx.yaml
