@@ -1,0 +1,29 @@
+---
+
+- name: Create the disk mapping file
+  include_tasks: create_disk_mapping_file.yml
+
+- name: Mount disks usr-sap
+  include_tasks: mount_disk_usr_sap.yml
+
+- name: Mount EFS
+  include_tasks: mount_efs.yaml
+
+- name: Mount disks for Swap
+  include_tasks: check_swap_enabled.yml
+
+- name: Mount disks Hana Data
+  include_tasks: mount_disk_hana_data.yml
+  when: GLOBAL_APPLICATION_TYPE == "HANA"
+
+- name: Mount disks Hana Logs
+  include_tasks: mount_disk_hana_logs.yml
+  when: GLOBAL_APPLICATION_TYPE == "HANA"
+
+- name: Mount disks Hana Shared
+  include_tasks: mount_disk_hana_shared.yml
+  when: GLOBAL_APPLICATION_TYPE == "HANA"
+
+- name: Mount disks Hana Backup
+  include_tasks: mount_disk_hana_backup.yml
+  when: GLOBAL_APPLICATION_TYPE == "HANA"

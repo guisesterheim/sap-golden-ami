@@ -6,3 +6,4 @@
   roles:
     - role: role-os-startup
     - role: role-user-creation
+    - role: role-mount-disks

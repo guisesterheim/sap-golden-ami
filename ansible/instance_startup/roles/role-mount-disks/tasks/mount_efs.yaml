@@ -1,14 +1,8 @@
 ---
 
-- name: Ensure mount directory exists
-  file:
-    path: "{{ sapmnt_dir }}"
-    state: directory
-    mode: 0755
-
 - name: Ensure EFS volume is mounted.
   mount:
-    name: "{{ sapmnt_dir }}"
+    name: "{{ sapmnt_folder }}"
     src: "{{ GLOBAL_EFS_ID }}.efs.{{ GLOBAL_AWS_REGION }}.amazonaws.com:/"
     fstype: efs
     opts: "_netdev,tls,accesspoint={{ GLOBAL_EFS_ACCESS_POINT_ID }}"
