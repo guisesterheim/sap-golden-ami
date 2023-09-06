@@ -3,6 +3,6 @@
 - name: Add configs to 99-sap.conf
   lineinfile:
     state: present
-    path: "{{ 99_sap_conf_full_path }}"
+    path: "{{ ninetynine_sap_conf_full_path }}"
     line: "{{ item }}"
-  loop: "{{ 99_sap_conf_configs }}"
+  loop: "{{ ninetynine_sap_conf_configs }}"

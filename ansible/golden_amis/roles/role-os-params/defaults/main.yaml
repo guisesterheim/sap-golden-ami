@@ -19,8 +19,8 @@ limits_conf_configs:
   - '@dba    - nofile 1048576'
   - '@sdba   - nofile 1048576'
 
-99_sap_conf_full_path: /etc/security/limits.d
-99_sap_conf_configs:
+ninetynine_sap_conf_full_path: /etc/security/limits.d
+ninetynine_sap_conf_configs:
   - '@sapsys    hard    nproc    unlimited' 
   - '@sapsys    soft    nproc    unlimited' 
   - '@dba       hard    nproc    unlimited'
