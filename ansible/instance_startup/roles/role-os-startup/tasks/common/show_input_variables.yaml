@@ -1,0 +1,12 @@
+---
+
+- name: Show input parameters
+  debug:
+    msg: "{{ item }}"
+  loop:
+    - "{{ INPUT_AWS_REGION }}"
+    - "{{ INPUT_APPLICATION_TYPE }}"
+    - "{{ INPUT_ACCESS_POINT_ID }}"
+    - "{{ INPUT_EFS_ID }}"
+    - "{{ INPUT_HOSTNAME }}"
+    - "{{ INPUT_ENVIRONMENT }}"

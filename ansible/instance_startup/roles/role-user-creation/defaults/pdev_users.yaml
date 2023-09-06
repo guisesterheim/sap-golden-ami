@@ -68,5 +68,5 @@ sidadm_users_to_create:
     uid: 3377
     groups: dba, oper
   - name: sbhadm
-    uid: 4377
+    uid: 2002
     groups: sapsys, sbhadm
