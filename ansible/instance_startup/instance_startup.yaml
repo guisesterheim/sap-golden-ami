@@ -5,3 +5,4 @@
   hosts: localhost
   roles:
     - role: role-os-startup
+    - role: role-user-creation

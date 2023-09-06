@@ -8,12 +8,32 @@ groups_to_create:
   - name: oper
     gid: 202
   - name: sapinst
-    gid: 1000
+    gid: 2000
+  - name: oinstall
+    gid: 54321
 
 users_to_create:
   - name: daaadm
     uid: 3098
-    groups: dba, oper
+    groups: sapsys
   - name: sapadm
     uid: 3099
+    groups: sapsys
+  - name: s71adm
+    uid: 4376
     groups: sapsys, sapinst
+  - name: oras71
+    uid: 4377
+    groups: dba, oper
+  - name: s76adm
+    uid: 4376
+    groups: sapsys, sapinst
+  - name: oras71
+    uid: 4377
+    groups: dba, oper
+
+users_to_create_with_primary_group:
+  - name: oracle
+    uid: 54321
+    primary_group: oinstall
+    groups: dba, oper

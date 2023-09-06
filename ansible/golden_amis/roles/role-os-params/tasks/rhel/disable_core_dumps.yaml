@@ -9,3 +9,4 @@
     - abrtd
     - abrt-ccpp
     - kdump
+  ignore_errors: yes

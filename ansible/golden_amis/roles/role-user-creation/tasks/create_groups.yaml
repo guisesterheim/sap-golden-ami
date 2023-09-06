@@ -1,8 +1,0 @@
----
-
-- name: Ensure groups are created
-  group:
-    name: "{{ item.name }}"
-    state: present
-    gid: "{{ item.gid }}"
-  loop: "{{ groups_to_create }}"

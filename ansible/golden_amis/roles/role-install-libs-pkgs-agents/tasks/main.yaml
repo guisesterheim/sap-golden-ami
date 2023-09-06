@@ -1,8 +1,5 @@
 ---
 
-- name: Distribution
-  debug: msg="{{ ansible_distribution }}"
-
 - name: Install dependencies for RedHat
   include_tasks: rhel/install_deps.yaml
   when: ansible_distribution == "RedHat"
@@ -16,12 +13,9 @@
 
 - name: Install SSM
   include_tasks: rhel/install_ssm.yaml
-  when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
-
+  
 - name: Install AWS SAP Data Provider for RedHat
   include_tasks: rhel/install_data_provider_rhel.yaml
-  when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
-
+  
 - name: Install EFS utils
   include_tasks: rhel/install_efs_utils.yaml
-  when: ansible_distribution == "OracleLinux" or ansible_distribution == "RedHat"
