@@ -18,5 +18,6 @@ rm -rf $ansible_playbook_folder
 
 sudo yum install -y git ansible
 git clone https://github.com/guisesterheim/sap-golden-ami.git $ansible_playbook_folder
+
 sudo ansible-playbook $ansible_playbook_folder/ansible/instance_startup/instance_startup.yaml \
-    --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_APPLICATION_TYPE=HANA GLOBAL_EFS_ACCESS_POINT_ID=fsap-0c1d2bf56becd5232 INPUT_EFS_ID=fs-0d441fde456d83ac0 INPUT_HOSTNAME=hostname INPUT_ENVIRONMENT=pdev"
+    --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_APPLICATION_TYPE=HANA INPUT_ACCESS_POINT_ID=fsap-076387b5d397bbb9a INPUT_EFS_ID=fs-095b02d4a199c4557 INPUT_HOSTNAME=sap-sbhhana01 INPUT_ENVIRONMENT=pdev"
