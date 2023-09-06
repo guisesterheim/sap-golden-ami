@@ -32,6 +32,7 @@ module "ec2_image_builder_RedHat" {
   kms_key_arn = data.aws_ssm_parameter.cmk_arn_ec2_image_builder.value
   
   operating_system = "RHEL"
+  final_usage_of_ami = "SAP"
   base_ami = data.aws_ssm_parameter.ami_id_redhat.value
   s3_bucket_ec2_image_builder_logs = module.s3_bucket_ec2_image_builder.bucket_name
   ec2_iam_role_name = module.sap_iam_roles.iam_instance_profile_name

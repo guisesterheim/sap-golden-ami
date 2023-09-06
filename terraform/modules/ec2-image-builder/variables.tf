@@ -33,6 +33,11 @@ variable "operating_system" {
   type = string
 }
 
+variable "final_usage_of_ami" {
+  description = "The final usage for the created AMI. Examples: SAP or Oracle"
+  type = string
+}
+
 variable "ec2_iam_role_name" {
   description = "Role to be used for building the image"
   type = string
