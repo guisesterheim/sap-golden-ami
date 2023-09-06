@@ -6,16 +6,8 @@
 - name: Set clock source
   include_tasks: common/set_clocksource.yaml
 
-- name: Set sap.conf
-  include_tasks: rhel/set_sap_conf.yaml
-  when: ansible_distribution == "RedHat"
-
 - name: Set timezone
   include_tasks: common/set_timezone.yaml
-
-- name: Set tuned
-  include_tasks: common/set_tuned.yaml
-  when: ansible_distribution == "RedHat"
 
 - name: Set UUIDD
   include_tasks: common/set_uuidd.yaml
@@ -23,3 +15,7 @@
 - name: Apply OEL specific changes
   include_tasks: oel/apply_oel_specific_changes.yaml
   when: ansible_distribution == "OracleLinux"
+
+- name: Apply RHEL specific changes
+  include_tasks: rhel/apply_rhel_specific_changes.yaml
+  when: ansible_distribution == "RedHat"

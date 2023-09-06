@@ -1,0 +1,16 @@
+---
+
+- name: Add configs to limits.conf
+  lineinfile:
+    state: present
+    path: "{{ limits_conf_full_path }}"
+    line: "{{ item }}"
+  loop: "{{ limits_conf_configs }}"
+
+
+99_sap_conf_full_path: /etc/security/limits.d
+99_sap_conf_configs:
+ - '@sapsys    hard    nproc    unlimited' 
+ - '@sapsys    soft    nproc    unlimited' 
+ - '@dba       hard    nproc    unlimited'
+ - '@dba       soft    nproc    unlimited'

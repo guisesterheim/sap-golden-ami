@@ -5,3 +5,6 @@
 
 - name: Mount EFS
   include_tasks: common/mount_efs.yaml
+
+- name: Set hostname
+  include_tasks: common/set_hostname.yaml

@@ -1,0 +1,5 @@
+---
+
+- name: Set the Instance hostname
+  hostname:
+    name: "{{ GLOBAL_INPUT_HOSTNAME }}"

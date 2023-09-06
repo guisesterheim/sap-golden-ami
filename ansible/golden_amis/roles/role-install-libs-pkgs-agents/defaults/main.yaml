@@ -59,6 +59,14 @@ rhel_8_6_packages:
   - rpm-build
   - make
   - ansible-core
+  - gtk2
+  - krb5-libs
+  - openssl
+  - rsyslog
+  - sudo
+  - compat-sap-c++-10
+  - tuned
+  - cairo
 
 rhel_group_packages:
   - "@Server"
