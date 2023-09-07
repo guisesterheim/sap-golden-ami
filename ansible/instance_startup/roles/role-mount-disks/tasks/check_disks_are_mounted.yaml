@@ -7,13 +7,13 @@
   shell: lsblk -io MOUNTPOINT
   register: mounted_folder_list
 
-- name: Set fact for all disks mounted
-  set_fact: all_disks_mounted=true
-  when: item in mounted_folder_list.stdout_lines
-  with_items:
-    - "{{ hana_data_folder }}"
-    - "{{ hana_log_folder }}"
-    - "{{ hana_shared_folder }}"
-    - "{{ usr_sap_folder }}"
-    - "{{ hana_backup_folder }}"
-    - "{{ sapmnt_folder }}"
+# - name: Set fact for all disks mounted
+#   set_fact: all_disks_mounted=true
+#   when: item in mounted_folder_list.stdout_lines
+#   with_items:
+#     - "{{ hana_data_folder }}"
+#     - "{{ hana_log_folder }}"
+#     - "{{ hana_shared_folder }}"
+#     - "{{ usr_sap_folder }}"
+#     - "{{ hana_backup_folder }}"
+#     - "{{ sapmnt_folder }}"

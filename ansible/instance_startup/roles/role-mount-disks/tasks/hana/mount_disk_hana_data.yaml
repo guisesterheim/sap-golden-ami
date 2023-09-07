@@ -19,7 +19,7 @@
 
 - name: Show
   debug:
-    msg: "{{ volume_names }}"
+    msg: "{{ volume_names|join(',')}}"
 
 - name: Show
   debug:
