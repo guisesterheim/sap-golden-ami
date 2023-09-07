@@ -14,6 +14,6 @@
     - "{{ hana_data_folder }}"
     - "{{ hana_log_folder }}"
     - "{{ hana_shared_folder }}"
-    - "{{ hana_sap_folder }}"
+    - "{{ usr_sap_folder }}"
     - "{{ hana_backup_folder }}"
     - "{{ sapmnt_folder }}"
