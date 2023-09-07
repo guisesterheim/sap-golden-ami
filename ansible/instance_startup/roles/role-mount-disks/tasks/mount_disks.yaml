@@ -3,8 +3,8 @@
 - name: Create the disk mapping file
   include_tasks: create_disk_mapping_file.yaml
 
-# - name: Mount disks usr-sap
-#   include_tasks: mount_disk_usr_sap.yaml
+- name: Mount disks usr-sap
+  include_tasks: mount_disk_usr_sap.yaml
 
 # - name: Mount EFS
 #   include_tasks: mount_efs.yaml
