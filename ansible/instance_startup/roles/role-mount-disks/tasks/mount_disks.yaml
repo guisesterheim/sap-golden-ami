@@ -6,11 +6,11 @@
 - name: Mount disks usr-sap
   include_tasks: mount_disk_usr_sap.yaml
 
-# - name: Mount EFS
-#   include_tasks: mount_efs.yaml
+- name: Mount EFS
+  include_tasks: mount_efs.yaml
 
-# - name: Mount disks for Swap
-#   include_tasks: check_swap_enabled.yaml
+- name: Mount disks for Swap
+  include_tasks: check_swap_enabled.yaml
 
 - name: Mount disks Hana Shared
   include_tasks: hana/mount_disk_hana_shared.yaml

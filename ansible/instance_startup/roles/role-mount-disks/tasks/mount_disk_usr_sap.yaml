@@ -33,7 +33,6 @@
   debug:
     msg: "{{ volume_names | join(',')}}"
 
-
 - name: Create the physical volumes and volume group
   lvg:
     vg: "{{ volume_group_usr_sap }}"
