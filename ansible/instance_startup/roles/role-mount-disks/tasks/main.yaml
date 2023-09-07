@@ -3,6 +3,10 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
+- name: Show vars
+  debug:
+    msg: "{{ folders_to_create }}"  
+
 - name: Create folders
   include_tasks: create_folders.yaml
 

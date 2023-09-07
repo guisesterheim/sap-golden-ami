@@ -1,8 +1,5 @@
 ---
 
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: MIT-0
-
 # Variables to check disks mounted
 regex_to_look_for_disks: "nvme\\w*n1\\b"
 minimum_number_of_mounted_disks_to_search: 9
