@@ -27,7 +27,7 @@
 
 - name: Show 1
   debug:
-    msg: "{{ volume names }}"
+    msg: "{{ volume_names }}"
 
 - name: Create the physical volumes and volume group
   lvg:
