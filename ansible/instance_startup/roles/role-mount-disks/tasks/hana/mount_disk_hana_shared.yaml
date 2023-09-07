@@ -8,14 +8,26 @@
   register: volumes_found
   with_items: "{{ hana_shared_disk_type_pattern }}"
 
+- name: Show 1
+  debug:
+    msg: "{{ volumes_found }}"
+
 - name: Register fact with stdout for volume names
   set_fact: mount_name="{{ item.stdout }}"
   loop: "{{ volumes_found.results }}"
   register: volume_name_result
   no_log: yes
 
+- name: Show 1
+  debug:
+    msg: "{{ volume_name_result }}"
+
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
+
+- name: Show 1
+  debug:
+    msg: "{{ volume names }}"
 
 - name: Create the physical volumes and volume group
   lvg:
