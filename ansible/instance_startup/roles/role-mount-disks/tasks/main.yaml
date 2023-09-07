@@ -1,8 +1,5 @@
 ---
 
-- name: Include vars
-  include_vars: "defaults/main.yaml"
-
 - name: Create folders
   include_tasks: create_folders.yaml
 
