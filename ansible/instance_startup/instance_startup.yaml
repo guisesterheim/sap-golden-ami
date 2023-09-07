@@ -5,5 +5,15 @@
   hosts: localhost
   roles:
     - role: role-os-startup
-    - role: role-mount-disks
+    
+- name: Create users
+  become: true
+  hosts: localhost
+  roles:
     - role: role-user-creation
+
+- name: Mount disks
+  become: true
+  hosts: localhost
+  roles:
+    - role: role-mount-disks
