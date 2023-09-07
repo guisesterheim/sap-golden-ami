@@ -23,7 +23,7 @@
 
 - name: Show 2
   debug:
-    msg: "{{ volume_names|join(',')}}"
+    msg: "{{ volume_names|join('\\n')}}"
 
 - name: Create the physical volumes and volume group
   lvg:
