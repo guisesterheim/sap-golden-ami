@@ -5,5 +5,5 @@
   hosts: localhost
   roles:
     - role: role-os-startup
-    - role: role-user-creation
     - role: role-mount-disks
+    - role: role-user-creation
