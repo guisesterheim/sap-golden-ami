@@ -22,7 +22,7 @@ folders_to_create:
   - /usr/sap/trans
   - /software
   - /backup
-  - "{{ sapmnt_dir }}"
+  - "{{ sapmnt_folder }}"
 
 # Variables for mounting DATA disks
 hana_data_folder: /hana/data

@@ -8,5 +8,5 @@
   register: swap_check_output
 
 - name: Configure SWAP
-  include_tasks: mount_disk_swap.yml
+  include_tasks: mount_disk_swap.yaml
   when: swap_check_output.stdout_lines|length == 0
