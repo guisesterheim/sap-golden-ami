@@ -21,22 +21,17 @@
   debug:
     msg: "{{ volume_names }}"
 
-- name: Show 2
-  debug:
-    msg: "{{ volume_names | join('\\n')}}"
+- name: Make a list with stdout found
+  set_fact: volume_names="{{ volume_names | difference('\n') }}"
 
 - name: Show 2
   debug:
-    msg: "{{ volume_names | join('\n')}}"
-
-- name: Show 2
-  debug:
-    msg: "{{ volume_names | join(',')}}"
+    msg: "{{ volume_names }}"
 
 - name: Create the physical volumes and volume group
   lvg:
     vg: "{{ volume_group_hana_data }}"
-    pvs: "{{ volume_names|join(',')}}"
+    pvs: "{{ volume_names|join(',') }}"
   register: volumes_output
 
 - name: Create the logical volume
