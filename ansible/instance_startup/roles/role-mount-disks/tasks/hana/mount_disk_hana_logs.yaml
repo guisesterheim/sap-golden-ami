@@ -17,26 +17,17 @@
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
 
+- name: Make a list with stdout found
+  set_fact: volume_names="{{ volume_names | difference('\n') }}"
+
 - name: Show 1
   debug:
     msg: "{{ volume_names }}"
 
-- name: Show 2
-  debug:
-    msg: "{{ volume_names | join('\\n')}}"
-
-- name: Show 2
-  debug:
-    msg: "{{ volume_names | join('\n')}}"
-
-- name: Show 2
-  debug:
-    msg: "{{ volume_names | join(',')[:-1] }}"
-
 - name: Create the physical volumes and volume group
   lvg:
     vg: "{{ volume_group_hana_log }}"
-    pvs: "{{ volume_names|join(',')[:-1] }}"
+    pvs: "{{ volume_names|join(',') }}"
   register: volumes_output
 
 - name: Create the logical volume
