@@ -8,18 +8,6 @@ resource "aws_imagebuilder_image_recipe" "this" {
   name         = "${var.app_name}-AMI-recipe"
   parent_image = var.base_ami
   version      = "1.0.0"
-  
-  block_device_mapping {
-    device_name = "/dev/xvdb"
-
-    ebs {
-      delete_on_termination = true
-      volume_size           = "50"
-      volume_type           = "gp3"
-      encrypted = true
-      kms_key_id = var.kms_key_arn
-    }
-  }
 
   component {
     # component_arn = var.aws_cli_component_ec2_image_builder_arn
