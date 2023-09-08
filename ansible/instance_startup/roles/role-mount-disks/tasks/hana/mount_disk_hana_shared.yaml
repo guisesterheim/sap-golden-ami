@@ -28,7 +28,7 @@
     vg: "{{ volume_group_hana_shared }}"
     lv: "{{ logical_volume_hana_shared }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count }}"
+    opts: "-i {{ volume_names | count }} -I 256"
 
 - name: Create the filesystem
   filesystem:

@@ -10,7 +10,6 @@ resource "aws_imagebuilder_image_recipe" "this" {
   version      = "1.0.0"
 
   component {
-    # component_arn = var.aws_cli_component_ec2_image_builder_arn
     component_arn = aws_imagebuilder_component.custom_ansible.arn
   }
 
