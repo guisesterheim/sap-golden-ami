@@ -8,3 +8,7 @@
   failed_when: "filtered_disks | length < minimum_number_of_mounted_disks_to_search"
   retries: 60
   delay: 5
+
+- name: Show all volumes
+  debug:
+    msg: "{{ ansible_devices }}"
