@@ -17,6 +17,9 @@
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
 
+- name: Remove empty lines
+  set_fact: volume_names="{{ volume_names | difference('\n') }}"
+
 - name: Create the physical volumes and volume group
   lvg:
     vg: "{{ volume_group_hana_shared }}"
