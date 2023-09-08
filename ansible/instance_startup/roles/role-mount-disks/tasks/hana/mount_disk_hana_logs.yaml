@@ -31,12 +31,12 @@
 
 - name: Show 2
   debug:
-    msg: "{{ volume_names | join(',')}}"
+    msg: "{{ volume_names | join(',')[:-1] }}"
 
 - name: Create the physical volumes and volume group
   lvg:
     vg: "{{ volume_group_hana_log }}"
-    pvs: "{{ volume_names|join(',')}}"
+    pvs: "{{ volume_names|join(',')[:-1] }}"
   register: volumes_output
 
 - name: Create the logical volume
