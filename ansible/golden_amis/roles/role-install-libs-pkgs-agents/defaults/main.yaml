@@ -111,7 +111,7 @@ oel_yum_packages:
   - git 
   - rpm-build 
   - make 
-  - ansible
+  - ansible-core
 
 oel_dnf_packages:
   - oracle-database-preinstall-19c
