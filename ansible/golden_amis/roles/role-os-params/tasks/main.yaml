@@ -1,5 +1,8 @@
 ---
 
+- name: Disable firewall
+  include_tasks: common/disable_firewall.yaml
+
 - name: Enable NFS
   include_tasks: common/enable_nfs.yaml
 
