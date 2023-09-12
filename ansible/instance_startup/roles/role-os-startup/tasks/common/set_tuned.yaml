@@ -8,8 +8,8 @@
 
 - name: Configure tuned for HANA
   include_tasks: ../hana/set_tuned.yaml
-  when: GLOBAL_APPLICATION_TYPE == "HANA"
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_HANA
 
 - name: Configure tuned for NETWEAVER
   include_tasks: ../netweaver/set_tuned.yaml
-  when: GLOBAL_APPLICATION_TYPE == "NETWEAVER"
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_NETWEAVER

@@ -7,4 +7,4 @@
     - tuned --daemon
     - tuned-adm profile sap-netweaver
     - tuned-adm active
-  when: GLOBAL_APPLICATION_TYPE == "NETWEAVER"
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_NETWEAVER

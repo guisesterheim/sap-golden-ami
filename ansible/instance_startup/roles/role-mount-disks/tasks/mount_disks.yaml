@@ -14,16 +14,16 @@
 
 - name: Mount disks Hana Shared
   include_tasks: hana/mount_disk_hana_shared.yaml
-  when: GLOBAL_APPLICATION_TYPE == "HANA"
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_HANA
 
 - name: Mount disks Hana Backup
   include_tasks: hana/mount_disk_hana_backup.yaml
-  when: GLOBAL_APPLICATION_TYPE == "HANA"
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_HANA
 
 - name: Mount disks Hana Logs
   include_tasks: hana/mount_disk_hana_logs.yaml
-  when: GLOBAL_APPLICATION_TYPE == "HANA"
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_HANA
 
 - name: Mount disks Hana Data
   include_tasks: hana/mount_disk_hana_data.yaml
-  when: GLOBAL_APPLICATION_TYPE == "HANA"
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_HANA

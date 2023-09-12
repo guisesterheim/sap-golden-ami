@@ -13,7 +13,7 @@ sapmnt_folder: /sapmnt
 
 disk_mapping_file_full_path: /tmp/diskmap
 
-folders_to_create:
+folders_to_create_hana:
   - /hana/shared
   - /hana/data
   - /hana/log
@@ -21,6 +21,17 @@ folders_to_create:
   - /software
   - /backup
   - "{{ sapmnt_folder }}"
+
+folders_to_create_netweaver:
+  - /usr/sap/trans
+  - /software
+  - "{{ sapmnt_folder }}"
+
+folders_to_create_oracle:
+  - /usr/sap/trans
+  - /software
+  - "{{ sapmnt_folder }}"
+
 
 # Variables for mounting DATA disks
 hana_data_folder: /hana/data
