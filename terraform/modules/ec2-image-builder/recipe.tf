@@ -9,11 +9,20 @@ resource "aws_imagebuilder_image_recipe" "this" {
   parent_image = var.base_ami
   version      = "1.0.0"
 
+  block_device_mapping {
+    device_name = "/dev/sda1"
+
+    ebs {
+      delete_on_termination = true
+      volume_size           = 50
+      volume_type           = "gp3"
+    }
+  }
+
   component {
     component_arn = aws_imagebuilder_component.custom_ansible.arn
   }
 
-  # user_data_base64 = base64encode(data.template_file.golden_ami_userdata.rendered)
   working_directory = "/home/ec2-user"
 
   tags = var.tags

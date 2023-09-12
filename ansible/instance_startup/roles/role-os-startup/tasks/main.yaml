@@ -5,6 +5,7 @@
 
 - name: Set tuned
   include_tasks: common/set_tuned.yaml
+  when: GLOBAL_APPLICATION_TYPE != "Oracle"
 
 - name: Set hostname
   include_tasks: common/set_instance_hostname.yaml
