@@ -5,9 +5,9 @@
 
 - name: Set tuned
   include_tasks: common/set_tuned.yaml
-  when: |
-    GLOBAL_OS_CONFIG_TYPE != CONSTANT_ORACLE
-    GLOBAL_OS_TYPE != CONSTANT_OEL_8_7
+  when:
+    - GLOBAL_OS_CONFIG_TYPE != CONSTANT_ORACLE and
+    - GLOBAL_OS_TYPE != CONSTANT_OEL_8_7
 
 - name: Set hostname
   include_tasks: common/set_instance_hostname.yaml
