@@ -8,3 +8,6 @@
     name: uuidd
     enabled: true
     state: started
+
+- name: Create service to keep UUIDD started, even after reboot
+  include_tasks: set_uuidd.yaml
