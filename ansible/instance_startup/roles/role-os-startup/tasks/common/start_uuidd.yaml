@@ -1,0 +1,7 @@
+--- 
+
+- name: Enable UUIDD service
+  service:
+    name: uuidd
+    enabled: true
+    state: started

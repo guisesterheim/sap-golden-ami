@@ -11,3 +11,6 @@
 
 - name: Set hostname
   include_tasks: common/set_instance_hostname.yaml
+
+- name: Start UUIDD
+  include_tasks: common/start_uuidd.yaml
