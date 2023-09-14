@@ -132,10 +132,12 @@ oel_dnf_packages:
   - libXi
   - libXtst
   - libgcc
+  - librdmacm
   - librdmacm-devel
   - libstdc++
   - libstdc++-devel
   - libxcb
+  - libibverbs
   - make
   - net-tools
   - nfs-utils
@@ -147,3 +149,5 @@ oel_dnf_packages:
   - libnsl.i686
   - libnsl2
   - libnsl2.i686
+  - policycoreutils
+  - policycoreutils-python-utils
