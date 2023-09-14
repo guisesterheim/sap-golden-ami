@@ -12,7 +12,7 @@
   systemd:
     daemon_reload: true
 
-- name: Restart service cron on centos, in all cases, also issue daemon-reload to pick up config changes
+- name: Start custom service
   systemd:
     state: started
     enabled: true
