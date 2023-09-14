@@ -1,7 +1,4 @@
 --- 
 
-- name: Enable UUIDD service
-  service:
-    name: uuidd
-    enabled: true
-    state: started
+- name: Start UUIDD service
+  command: service uuidd start
