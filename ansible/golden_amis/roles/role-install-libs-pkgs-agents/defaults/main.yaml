@@ -151,3 +151,24 @@ oel_dnf_packages:
   - libnsl2.i686
   - policycoreutils
   - policycoreutils-python-utils
+
+oel_yum_packages_32bits:
+  - elfutils-libelf.i686
+  - elfutils-libelf-devel.i686
+  - fontconfig-devel.i686
+  - glibc.i686
+  - glibc-devel.i686
+  - libaio.i686
+  - libaio-devel.i686
+  - libXrender.i686
+  - libX11.i686
+  - libXau.i686
+  - libXi.i686
+  - libXtst.i686
+  - libgcc.i686
+  - libnsl.i686
+  - librdmacm.i686
+  - libstdc++.i686
+  - libstdc++-devel.i686
+  - libxcb.i686
+  - libibverbs.i686
