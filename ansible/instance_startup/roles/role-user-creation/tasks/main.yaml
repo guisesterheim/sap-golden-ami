@@ -1,6 +1,6 @@
 ---
 
-- name: Include users and groups for "{{ INPUT_ENVIRONMENT }}" environment
+- name: Include users and groups to be created for "{{ INPUT_ENVIRONMENT }}" environment and "{{ GLOBAL_HOSTNAME }}" hostname
   include_vars: "defaults/{{ INPUT_ENVIRONMENT }}/{{ GLOBAL_HOSTNAME }}.yaml"
 
 - name: Create groups
