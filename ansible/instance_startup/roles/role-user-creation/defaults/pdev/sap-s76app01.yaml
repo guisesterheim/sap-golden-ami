@@ -30,4 +30,4 @@ users_to_create:
   - name: oras76
     uid: 4377
     primary_group: dba
-    groups: dba,oper,oinstall
+    groups: dba,oper

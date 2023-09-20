@@ -22,7 +22,7 @@ users_to_create:
   - name: oram77
     uid: 3077
     primary_group: dba
-    groups: dba,oper,oinstall
+    groups: dba,oper
   - name: m77adm
     uid: 3078
     primary_group: sapsys
