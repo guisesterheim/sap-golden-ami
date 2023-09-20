@@ -21,10 +21,10 @@ default_users_to_create:
 sidadm_users_to_create:
   - name: oram77
     uid: 3077
-    groups: dba, oper, oinstall
+    groups: dba,oper,oinstall
   - name: m77adm
     uid: 3078
-    groups: sapsys, sapinst
+    groups: sapsys,sapinst
   - name: s70adm
     uid: 3070
-    groups: sapsys, sapinst
+    groups: sapsys,sapinst
