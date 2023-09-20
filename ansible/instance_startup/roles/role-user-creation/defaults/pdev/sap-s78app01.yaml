@@ -15,12 +15,20 @@ users_to_create:
     uid: 3099
     primary_group: sapsys
     groups: sapsys
+  - name: sbjadm
+    uid: 3384
+    primary_group: sapsys
+    groups: sapsys,sapinst
   - name: s78adm
     uid: 2006
     primary_group: sapsys
     groups: sapsys,sapinst
   - name: s72adm
     uid: 2072
+    primary_group: sapsys
+    groups: sapsys,sapinst
+  - name: s73adm
+    uid: 3373
     primary_group: sapsys
     groups: sapsys,sapinst
   
