@@ -35,4 +35,5 @@ users_to_create:
     groups: sapsys,sapinst
   - name: s71adm
     uid: 4371
+    primary_group: sapsys
     groups: sapsys,sapinst
