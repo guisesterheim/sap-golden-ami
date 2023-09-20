@@ -1,24 +1,23 @@
 ---
 
-default_groups_to_create:
+groups_to_create:
   - name: sapsys
     gid: 200
   - name: sapinst
     gid: 2000
-  
-sidadm_groups_to_create:
   - name: sbhshm
     gid: 2002
 
-default_users_to_create:
+users_to_create:
   - name: daaadm
     uid: 3098
+    primary_group: sapsys
     groups: sapsys
   - name: sapadm
     uid: 3099
+    primary_group: sapsys
     groups: sapsys
-
-sidadm_users_to_create:
   - name: sbhadm
     uid: 2002
+    primary_group: sapsys
     groups: sapsys, sbhshm

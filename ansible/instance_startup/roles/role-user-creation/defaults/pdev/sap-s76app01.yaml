@@ -1,6 +1,6 @@
 ---
 
-default_groups_to_create:
+groups_to_create:
   - name: sapsys
     gid: 200
   - name: dba
@@ -10,21 +10,24 @@ default_groups_to_create:
   - name: sapinst
     gid: 2000
   
-default_users_to_create:
+users_to_create:
   - name: daaadm
     uid: 3098
+    primary_group: sapsys
     groups: sapsys
   - name: sapadm
     uid: 3099
+    primary_group: sapsys
     groups: sapsys
-
-sidadm_users_to_create:
   - name: s76adm
     uid: 4376
-    groups: sapsys, sapinst
+    primary_group: sapsys
+    groups: sapsys,sapinst
   - name: s71adm
     uid: 4371
-    groups: sapsys, sapinst
+    primary_group: sapsys
+    groups: sapsys,sapinst
   - name: oras76
     uid: 4377
-    groups: dba, oper, oinstall
+    primary_group: dba
+    groups: dba,oper,oinstall

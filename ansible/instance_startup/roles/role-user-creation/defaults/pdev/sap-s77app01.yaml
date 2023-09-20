@@ -1,6 +1,6 @@
 ---
 
-default_groups_to_create:
+groups_to_create:
   - name: sapsys
     gid: 200
   - name: dba

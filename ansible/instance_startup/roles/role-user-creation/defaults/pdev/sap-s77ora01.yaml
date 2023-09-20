@@ -1,6 +1,6 @@
 ---
 
-default_groups_to_create:
+groups_to_create:
   - name: sapsys
     gid: 200
   - name: dba
@@ -12,27 +12,28 @@ default_groups_to_create:
   - name: oinstall
     gid: 54321
 
-default_users_to_create:
+users_to_create:
   - name: daaadm
     uid: 3098
+    primary_group: sapsys
     groups: sapsys
   - name: sapadm
     uid: 3099
+    primary_group: sapsys
     groups: sapsys
-
-default_users_to_create_with_primary_group:
   - name: oracle
     uid: 54321
     primary_group: oinstall
-    groups: dba, oper
-
-sidadm_users_to_create:
+    groups: dba,oper
   - name: oram77
     uid: 3077
-    groups: dba, oper, oinstall
+    primary_group: dba
+    groups: dba,oper,oinstall
   - name: m77adm
     uid: 3078
-    groups: sapsys, sapinst
+    primary_group: sapsys
+    groups: sapsys,sapinst
   - name: s70adm
     uid: 3070
-    groups: sapsys, sapinst
+    primary_group: sapsys
+    groups: sapsys,sapinst
