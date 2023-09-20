@@ -1,7 +1,7 @@
 ---
 
 - name: Include users and groups for "{{ INPUT_ENVIRONMENT }}" environment
-  include_vars: "defaults/{{ INPUT_ENVIRONMENT }}_users.yaml"
+  include_vars: "defaults/{{ INPUT_ENVIRONMENT }}/{{ GLOBAL_HOSTNAME }}.yaml"
 
 - name: Create groups
   include_tasks: create_groups.yaml

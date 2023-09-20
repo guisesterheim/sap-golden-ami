@@ -6,6 +6,7 @@
     state: present
     gid: "{{ item.gid }}"
   loop: "{{ default_groups_to_create }}"
+  when: default_groups_to_create is defined
 
 - name: Ensure sidadm groups are created
   group:
@@ -13,3 +14,4 @@
     state: present
     gid: "{{ item.gid }}"
   loop: "{{ sidadm_groups_to_create }}"
+  when: sidadm_groups_to_create is defined

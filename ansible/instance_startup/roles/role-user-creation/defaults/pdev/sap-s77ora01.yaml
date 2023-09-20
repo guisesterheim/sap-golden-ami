@@ -12,10 +12,6 @@ default_groups_to_create:
   - name: oinstall
     gid: 54321
 
-sidadm_groups_to_create:
-  - name: sbhshm
-    gid: 2002
-
 default_users_to_create:
   - name: daaadm
     uid: 3098
@@ -31,24 +27,12 @@ default_users_to_create_with_primary_group:
     groups: dba, oper
 
 sidadm_users_to_create:
-  - name: sbhadm
-    uid: 2002
-    groups: sapsys, sbhshm
-  - name: oras76
-    uid: 4377
-    groups: dba, oper, oinstall
-  - name: s76adm
-    uid: 4376
-    groups: sapsys, sapinst
   - name: oram77
     uid: 3077
     groups: dba, oper, oinstall
   - name: m77adm
     uid: 3078
     groups: sapsys, sapinst
-  - name: s78adm
-    uid: 2006
-    groups: sapsys, sapinst
-  - name: sbjadm
-    uid: 3384
+  - name: s70adm
+    uid: 3070
     groups: sapsys, sapinst

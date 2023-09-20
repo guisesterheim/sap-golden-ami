@@ -1,0 +1,30 @@
+---
+
+default_groups_to_create:
+  - name: sapsys
+    gid: 200
+  - name: dba
+    gid: 201
+  - name: oper
+    gid: 202
+  - name: sapinst
+    gid: 2000
+  
+default_users_to_create:
+  - name: daaadm
+    uid: 3098
+    groups: sapsys
+  - name: sapadm
+    uid: 3099
+    groups: sapsys
+
+sidadm_users_to_create:
+  - name: oram77
+    uid: 3077
+    groups: dba, oper, oinstall
+  - name: m77adm
+    uid: 3078
+    groups: sapsys, sapinst
+  - name: s70adm
+    uid: 3070
+    groups: sapsys, sapinst

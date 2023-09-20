@@ -1,0 +1,24 @@
+---
+
+default_groups_to_create:
+  - name: sapsys
+    gid: 200
+  - name: sapinst
+    gid: 2000
+
+default_users_to_create:
+  - name: daaadm
+    uid: 3098
+    groups: sapsys
+  - name: sapadm
+    uid: 3099
+    groups: sapsys
+
+sidadm_users_to_create:
+  - name: s78adm
+    uid: 2006
+    groups: sapsys, sapinst
+  - name: s72adm
+    uid: 2072
+    groups: sapsys, sapinst
+  

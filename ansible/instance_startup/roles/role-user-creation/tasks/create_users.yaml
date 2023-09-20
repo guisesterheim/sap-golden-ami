@@ -7,6 +7,7 @@
     uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
   loop: "{{ default_users_to_create }}"
+  when: default_users_to_create is defined
 
 - name: Ensure default users are created
   user:
@@ -16,6 +17,7 @@
     group: "{{ item.primary_group }}"
     groups: "{{ item.groups }}"
   loop: "{{ default_users_to_create_with_primary_group }}"
+  when: default_users_to_create_with_primary_group is defined
 
 - name: Ensure sidadm users are created
   user:
@@ -24,3 +26,4 @@
     uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
   loop: "{{ sidadm_users_to_create }}"
+  when: sidadm_users_to_create is defined
