@@ -1,6 +1,6 @@
 ---
 
-- name: Show variables received as input parameters
+- name: Validate variables received as input parameters
   include_tasks: common/validate_input_variables.yaml
 
 - name: Show variables received as input parameters
