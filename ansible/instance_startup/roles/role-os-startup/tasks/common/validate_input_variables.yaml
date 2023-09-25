@@ -1,0 +1,18 @@
+---
+
+- name: Halt execution if REGION is not found
+  fail:
+    msg: "The input parameter INPUT_AWS_REGION is not informed. Please check it and try again"
+  when: INPUT_AWS_REGION is null
+
+
+
+
+
+  # - "{{ INPUT_AWS_REGION }}"
+  #   - "{{ INPUT_OS_CONFIG_TYPE }}"
+  #   - "{{ INPUT_OS_TYPE }}"
+  #   - "{{ INPUT_ACCESS_POINT_ID }}"
+  #   - "{{ INPUT_EFS_ID }}"
+  #   - "{{ INPUT_HOSTNAME }}"
+  #   - "{{ INPUT_ENVIRONMENT }}"
