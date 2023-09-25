@@ -1,7 +1,7 @@
 ---
 
 - name: Show variables received as input parameters
-  include_tasks: common/show_input_variables.yaml
+  include_tasks: common/validate_and_show_input_variables.yaml
 
 - name: Set tuned
   include_tasks: common/set_tuned.yaml

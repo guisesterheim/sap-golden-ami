@@ -1,0 +1,26 @@
+---
+
+- name: Halt execution if input variables are not all informed
+  fail:
+    msg: "The input parameter {{ item }} is not informed. Please check it and try again"
+  loop:
+    - "{{ INPUT_AWS_REGION }}"
+    - "{{ INPUT_OS_CONFIG_TYPE }}"
+    - "{{ INPUT_OS_TYPE }}"
+    - "{{ INPUT_ACCESS_POINT_ID }}"
+    - "{{ INPUT_EFS_ID }}"
+    - "{{ INPUT_HOSTNAME }}"
+    - "{{ INPUT_ENVIRONMENT }}"
+  when: item is null
+
+- name: Show input parameters
+  debug:
+    msg: "{{ item }}"
+  loop:
+    - "{{ INPUT_AWS_REGION }}"
+    - "{{ INPUT_OS_CONFIG_TYPE }}"
+    - "{{ INPUT_OS_TYPE }}"
+    - "{{ INPUT_ACCESS_POINT_ID }}"
+    - "{{ INPUT_EFS_ID }}"
+    - "{{ INPUT_HOSTNAME }}"
+    - "{{ INPUT_ENVIRONMENT }}"
