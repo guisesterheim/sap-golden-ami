@@ -43,6 +43,16 @@ variable "ec2_iam_role_name" {
   type = string
 }
 
+variable "subnet_id" {
+  description = "The subnet ID to place the builder instance in"
+  type = string
+}
+
+variable "vpc_id" {
+  description = "The VPC ID to place the builder instance in"
+  type = string
+}
+
 variable "tags" {
   description = "Tags for resources"
   type        = map(string)

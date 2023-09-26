@@ -13,3 +13,11 @@ data "aws_ssm_parameter" "cmk_arn_s3" {
 data "aws_ssm_parameter" "cmk_arn_ec2_image_builder" {
   name = "/${var.environment}/kms/ec2-image-builder/arn"
 }
+
+data "aws_ssm_parameter" "primary_subnet_id" {
+  name = "/${var.environment}/vpc/subnets/private/primary/id"
+}
+
+data "aws_ssm_parameter" "vpc_id" {
+  name = "/${var.environment}/vpc/id"
+}

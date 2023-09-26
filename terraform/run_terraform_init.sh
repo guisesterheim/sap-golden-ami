@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ENVIRONMENT="preDev"
-BUCKET_NAME="bell-tests-tf"
+BUCKET_NAME="pdev-bell-retail-aws-terraform-tfstate-files"
 REGION="ca-central-1"
 
 terraform \
