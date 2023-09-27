@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ENVIRONMENT="preDev"
+ENVIRONMENT="predev"
 
 terraform \
                 plan \

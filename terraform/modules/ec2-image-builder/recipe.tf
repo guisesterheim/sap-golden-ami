@@ -5,7 +5,7 @@ resource "aws_imagebuilder_image" "this" {
 }
 
 resource "aws_imagebuilder_image_recipe" "this" {
-  name         = "${var.app_name}-AMI-recipe"
+  name         = "itsre-${var.environment}-${var.operating_system}-AMI-recipe"
   parent_image = var.base_ami
   version      = "1.0.0"
 

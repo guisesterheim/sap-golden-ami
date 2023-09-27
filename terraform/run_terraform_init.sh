@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ENVIRONMENT="preDev"
+ENVIRONMENT="predev"
 BUCKET_NAME="pdev-bell-retail-aws-terraform-tfstate-files"
 REGION="ca-central-1"
 

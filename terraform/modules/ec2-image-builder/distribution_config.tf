@@ -1,5 +1,5 @@
 resource "aws_imagebuilder_distribution_configuration" "this" {
-  name       = "${var.app_name}-local-distribution"
+  name       = "itsre-${var.environment}-${var.operating_system}-local-distribution"
   description = "Distribution config for when an AMI is built"
 
   distribution {
