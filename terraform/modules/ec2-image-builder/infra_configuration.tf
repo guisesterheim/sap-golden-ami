@@ -1,3 +1,13 @@
+# TODO: remove this resource below called "aws_s3_object.this" this was created for when we don't have access to Gitlab. Once we have it, delete this resource
+resource "aws_s3_object" "ansible_zip_file" {
+  bucket = var.s3_bucket_ec2_image_builder_logs
+  key    = "/ec2-image-builder/components/${var.operating_system}/files/ansible.zip"
+  source = "${path.module}/files/ansible.zip"
+  
+  # If the md5 hash is different it will re-upload
+  source_hash = filemd5("${path.module}/files/ansible.zip")
+}
+
 resource "aws_imagebuilder_infrastructure_configuration" "this" {
   description                   = "Infra config for when building a new AMI"
   instance_profile_name         = var.ec2_iam_role_name

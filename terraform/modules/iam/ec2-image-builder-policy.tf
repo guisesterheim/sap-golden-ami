@@ -38,7 +38,7 @@ data "aws_iam_policy_document" "image_builder" {
       "s3:List",
       "s3:GetObject"
     ]
-    resources = ["*"]
+    resources = ["arn:aws:s3:::${var.s3_bucket_ec2_image_builder_logs}/*"]
   }
 
   statement {

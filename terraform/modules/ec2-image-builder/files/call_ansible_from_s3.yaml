@@ -1,0 +1,37 @@
+name: Run custom Ansible code
+description: Run custom Ansible code to bootstrap instance
+schemaVersion: 1.0
+phases:
+  - name: build
+    steps:
+      - name: InstallAnsibleAndGit
+        action: ExecuteBash
+        inputs:
+          commands:
+            - linux_distro=$(rpm -qf /etc/redhat-release)
+            - if [[ $linux_distro == *"oraclelinux"* ]]; then
+            -   sudo dnf install -y epel-release
+            -   sudo dnf install -y git ansible
+            - else
+            -   sudo yum install -y git ansible-core
+            - fi
+            - sudo ansible-galaxy collection install community.general
+            - sudo ansible-galaxy collection install ansible.posix
+      - name: DownloadPlaybook
+        action: ExecuteBash
+        inputs:
+          commands:
+            - ansible_playbook_folder="/home/ec2-user/ansible"
+            - aws s3 cp s3://pdev-bell-ec2-image-builder/ec2-image-builder/components/RHEL/files/ansible.zip /home/ec2-user/ansible.zip
+            - unzip /home/ec2-user/ansible.zip
+      - name: InvokeAnsible
+        action: ExecuteBinary
+        inputs:
+          path: ansible-playbook
+          arguments:
+            - '/home/ec2-user/ansible/golden_amis/bootstrap_instance.yaml'
+      - name: DeletePlaybook
+        action: DeleteFolder
+        inputs:
+          - path: /home/ec2-user/ansible
+            force: true
