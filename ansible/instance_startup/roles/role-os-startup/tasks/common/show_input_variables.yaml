@@ -7,7 +7,6 @@
     - "{{ INPUT_AWS_REGION }}"
     - "{{ INPUT_OS_CONFIG_TYPE }}"
     - "{{ INPUT_OS_TYPE }}"
-    - "{{ INPUT_EFS_ACCESS_POINT_ID }}"
-    - "{{ INPUT_EFS_ID }}"
+    - "{{ INPUT_REQUIRED_EFS_TO_MOUNT }}"
     - "{{ INPUT_HOSTNAME }}"
     - "{{ INPUT_ENVIRONMENT }}"

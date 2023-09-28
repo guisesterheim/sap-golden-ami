@@ -4,6 +4,13 @@ Code covering:
 - Tuned (sap-hana for HANA and sap-netweaver for Netweaver)
 - EFS mount
 
+TEMP:
+
+aws s3 rm s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip
+rm -rf ansible.zip
+zip -r ansible.zip ansible/*
+aws s3 cp ansible.zip s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip
+
 ## Examples how to use
 ```
 ansible_playbook_folder="/home/ec2-user/sap-golden-ami"
@@ -14,7 +21,7 @@ sudo ansible-playbook $ansible_playbook_folder/ansible/instance_startup/instance
 ## Parameters
 | Parameter | Sample value | Supported values | How it works |
 | -- | -- | -- | -- |
-| INPUT_ENVIRONMENT | dev | pdev - dev - qa - prod | Affects user creation: which users to create in which instances | 
+| INPUT_ENVIRONMENT | dev | predev - dev - qa - prod | Affects user creation: which users to create in which instances | 
 | INPUT_AWS_REGION | ca-central-1 | N/A | Used for mounting EFS |
 | INPUT_OS_CONFIG_TYPE | HANA - ORACLE - NETWEAVER | Affects: EBS mount, directories creation, and SAP tuned configuration |
 | INPUT_OS_TYPE | RHEL8.8 | OEL8.8 - RHEL 8.8 | SAP tuned configuration

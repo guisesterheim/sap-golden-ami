@@ -20,15 +20,10 @@
     msg: "The input parameter INPUT_OS_TYPE is not informed. Please check it and try again"
   when: not INPUT_OS_TYPE is defined
 
-- name: Halt execution if EFS ACCESS POINT ID is not found
+- name: Halt execution if EFS REQUIRED MOUNTS is not found
   fail:
-    msg: "The input parameter INPUT_EFS_ACCESS_POINT_ID is not informed. Please check it and try again"
-  when: not INPUT_EFS_ACCESS_POINT_ID is defined
-
-- name: Halt execution if EFS ID is not found
-  fail:
-    msg: "The input parameter INPUT_EFS_ID is not informed. Please check it and try again"
-  when: not INPUT_EFS_ID is defined
+    msg: "The input parameter INPUT_REQUIRED_EFS_TO_MOUNT is not informed. Please check it and try again"
+  when: not INPUT_REQUIRED_EFS_TO_MOUNT is defined
 
 - name: Halt execution if HOSTNAME is not found
   fail:

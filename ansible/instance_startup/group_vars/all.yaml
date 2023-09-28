@@ -1,6 +1,6 @@
 ---
 
-GLOBAL_ENVIRONMENT: "{{ INPUT_ENVIRONMENT | default('pdev') }}"
+GLOBAL_ENVIRONMENT: "{{ INPUT_ENVIRONMENT | default('predev') }}"
 
 GLOBAL_OS_CONFIG_TYPE: "{{ INPUT_OS_CONFIG_TYPE | default('NETWEAVER') }}"
 GLOBAL_OS_TYPE: "{{ INPUT_OS_TYPE | default('RHEL8.8') }}"
