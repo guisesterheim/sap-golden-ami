@@ -1,13 +1,3 @@
-module "ec2_image_builder_vpc_endpoint" {
-  source = "./modules/vpc_endpoint"
-
-  environment = var.environment
-  vpc_id = data.aws_ssm_parameter.vpc_id.value
-  subnet_ids = [data.aws_ssm_parameter.primary_subnet_id.value, data.aws_ssm_parameter.secondary_subnet_id.value]
-
-  tags = local.tags
-}
-
 module "s3_bucket_ec2_image_builder" {
   source = "./modules/s3"
 
