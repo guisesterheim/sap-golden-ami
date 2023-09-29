@@ -1,28 +1,9 @@
 ---
 
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: MIT-0
-
-- name: Create directories if they don't exist for {{ CONSTANT_HANA }}
+- name: Create directories for EBS if they don't exist
   file:
-    path: "{{ item }}"
+    path: "{{ item['os_path_to_mount'] }}"
     state: directory
     mode: '0755'
-  loop: "{{ folders_to_create_hana }}"
-  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_HANA
-
-- name: Create directories if they don't exist for {{ CONSTANT_NETWEAVER }}
-  file:
-    path: "{{ item }}"
-    state: directory
-    mode: '0755'
-  loop: "{{ folders_to_create_netweaver }}"
-  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_NETWEAVER
-
-- name: Create directories if they don't exist for {{ CONSTANT_ORACLE }}
-  file:
-    path: "{{ item }}"
-    state: directory
-    mode: '0755'
-  loop: "{{ folders_to_create_oracle }}"
-  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_ORACLE
+  when: item['os_path_to_mount'] != ''
+  loop: "{{ ebs_full_map }}"

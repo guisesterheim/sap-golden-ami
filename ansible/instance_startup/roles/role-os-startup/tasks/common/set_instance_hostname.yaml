@@ -2,4 +2,4 @@
 
 - name: Set the Instance hostname
   hostname:
-    name: "{{ GLOBAL_HOSTNAME }}"
+    name: "{{ GLOBAL_HOSTNAME_FQDN }}"

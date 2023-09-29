@@ -25,7 +25,17 @@
     msg: "The input parameter INPUT_REQUIRED_EFS_TO_MOUNT is not informed. Please check it and try again"
   when: not INPUT_REQUIRED_EFS_TO_MOUNT is defined
 
+- name: Halt execution if EBS VOLUMES is not found
+  fail:
+    msg: "The input parameter INPUT_EBS_MAP_TO_MOUNT is not informed. Please check it and try again"
+  when: not INPUT_EBS_MAP_TO_MOUNT is defined
+
 - name: Halt execution if HOSTNAME is not found
   fail:
     msg: "The input parameter INPUT_HOSTNAME is not informed. Please check it and try again"
   when: not INPUT_HOSTNAME is defined
+
+- name: Halt execution if HOSTNAME FQDN is not found
+  fail:
+    msg: "The input parameter INPUT_HOSTNAME_FQDN is not informed. Please check it and try again"
+  when: not INPUT_HOSTNAME_FQDN is defined

@@ -1,0 +1,42 @@
+---
+
+# - name: Show lv to create
+#   debug:
+#     msg: "LV do {{ item['os_path_to_mount'] }} = {{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
+#   loop: "{{ ebs_full_map }}"
+
+# - name: Show vg to create
+#   debug:
+#     msg: "VG do {{ item['os_path_to_mount'] }} = {{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
+#   loop: "{{ ebs_full_map }}"
+
+- name: Create the physical volumes and volume group
+  lvg:
+    vg: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
+    pvs: "{{ item['internal_device'] }}"
+  when: item['os_path_to_mount'] != ''
+  loop: "{{ ebs_full_map }}"
+
+- name: Create the logical volumes
+  lvol:
+    vg: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
+    lv: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
+    size: 100%VG
+    opts: "-i 1" # TODO update number 1 to use the number of volumes plugged in
+  when: item['os_path_to_mount'] != ''
+  loop: "{{ ebs_full_map }}"
+
+- name: Create the filesystems
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
+  when: item['os_path_to_mount'] != ''
+  loop: "{{ ebs_full_map }}"
+
+- name: Register filesystems to /etc/fstab
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }} {{ item['os_path_to_mount'] }} xfs defaults 1 2"
+    state: present
+  when: item['os_path_to_mount'] != ''
+  loop: "{{ ebs_full_map }}"

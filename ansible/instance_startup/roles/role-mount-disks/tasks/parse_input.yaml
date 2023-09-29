@@ -1,0 +1,30 @@
+---
+
+- name: Check if all required disks are attached for {{ CONSTANT_HANA }}
+  set_fact: filtered_disks="{{ ansible_devices | map('regex_search', '^' + regex_to_look_for_disks ) | select ('string') | list }}"
+  retries: 60
+  delay: 5
+
+- name: Get mount names and types
+  shell: "nvme id-ctrl -v /dev/{{ item }} | {{ grep_find_command }} | {{ awk_position_command }} | {{ sed_replace_command }}"
+  loop: "{{ filtered_disks }}"
+  register: mount_types_complete
+
+- name: Convert input map
+  set_fact: 
+    ebs_input_map: "{{ INPUT_EBS_MAP_TO_MOUNT | from_yaml | dict2items }}"
+
+- name: Register EBS list
+  set_fact: 
+    ebs_list: "{{ ebs_list | default([]) + [{ 'key' : item['value']['device_name'], 'value' : item['value']['os_path_to_mount'] }] }}"
+  loop: "{{ ebs_input_map }}"
+
+- name: Register fact with stdout for mount types
+  set_fact: 
+    ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : item.stdout, 'internal_device': '/dev/' + item.item, 'os_path_to_mount': (ebs_list | selectattr('key', 'equalto', item.stdout) | map(attribute='value')) | join('') }] }}"
+  loop: "{{ mount_types_complete.results }}"
+  no_log: yes
+
+- name: Show EBS devices to mount
+  debug:
+    msg: "{{ ebs_full_map }}"

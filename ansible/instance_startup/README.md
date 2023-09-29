@@ -4,13 +4,6 @@ Code covering:
 - Tuned (sap-hana for HANA and sap-netweaver for Netweaver)
 - EFS mount
 
-TEMP:
-
-aws s3 rm s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip
-rm -rf ansible.zip
-zip -r ansible.zip ansible/*
-aws s3 cp ansible.zip s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip
-
 ## Examples how to use
 ```
 ansible_playbook_folder="/home/ec2-user/sap-golden-ami"

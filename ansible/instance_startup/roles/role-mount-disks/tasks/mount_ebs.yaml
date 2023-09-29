@@ -1,0 +1,13 @@
+---
+
+- name: Parse input params
+  include_tasks: parse_input.yaml
+
+- name: Create folders
+  include_tasks: create_folders.yaml
+
+- name: Mount common EBS
+  include_tasks: mount_common_ebs.yaml
+
+# - name: Mount disks for Swap
+#   include_tasks: check_swap_enabled.yaml

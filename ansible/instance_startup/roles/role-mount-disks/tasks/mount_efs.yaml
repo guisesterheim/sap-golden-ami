@@ -1,9 +1,25 @@
 ---
 
-- name: Ensure EFS volume is mounted.
+- name: Parse input JSON into dict
+  set_fact: mounts_map="{{ INPUT_REQUIRED_EFS_TO_MOUNT | from_yaml | dict2items }}"
+
+- name: Show EFS volumes to mount
+  debug:
+    msg: "{{ item }}"
+  loop: "{{ mounts_map }}"
+
+- name: Ensure EFS folders are created
+  file:
+    path: "{{ item['value']['full_path'] }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ mounts_map }}"
+
+- name: Ensure EFS volumes are mounted
   mount:
-    name: "{{ sapmnt_folder }}"
-    src: "{{ GLOBAL_EFS_ID }}.efs.{{ GLOBAL_AWS_REGION }}.amazonaws.com:/"
+    name: "{{ item['value']['full_path'] }}"
+    src: "{{ item['value']['efs_id'] }}"
     fstype: efs
-    opts: "_netdev,tls,accesspoint={{ GLOBAL_EFS_ACCESS_POINT_ID }}"
+    opts: "_netdev,tls,mounttargetip={{ item['value']['mount_target_ip'] }}"
     state: mounted
+  loop: "{{ mounts_map }}"
