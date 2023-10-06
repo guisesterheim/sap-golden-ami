@@ -20,11 +20,41 @@ limits_conf_configs:
   - '@sdba   - nofile 1048576'
 
 ninetynine_sap_conf_full_path: /etc/security/limits.d/99-sap.conf
-ninetynine_sap_conf_configs:
+rhel_ninetynine_sap_conf_configs:
   - '@sapsys hard nproc unlimited' 
   - '@sapsys soft nproc unlimited' 
   - '@dba hard nproc unlimited'
   - '@dba soft nproc unlimited'
+  - '* soft core 0'
+  - '* hard core 0'
+  
+oel_ninetynine_sap_conf_configs:
+  - '@sapsys hard nproc unlimited'
+  - '@sapsys soft nproc unlimited'
+  - '@sapsys soft core unlimited'
+  - '@sapsys hard core unlimited'
+  - '@sapsys soft nofile 65536'
+  - '@sapsys hard nofile 65536'
+  - '@dba hard nproc unlimited'
+  - '@dba soft nproc unlimited'
+  - '@dba soft nofile 65536'
+  - '@dba hard nofile 65536'
+  - '@dba soft core unlimited'
+  - '@dba hard core unlimited'
+  - '@dba soft memlock 134217728'
+  - '@dba hard memlock 134217728'
+  - '@dba soft stack 10240'
+  - '@dba hard stack 32768'
+  - '@oinstall hard nproc unlimited'
+  - '@oinstall soft nproc unlimited'
+  - '@oinstall soft nofile 65536'
+  - '@oinstall hard nofile 65536'
+  - '@oinstall soft core unlimited'
+  - '@oinstall hard core unlimited'
+  - 'root soft core unlimited'
+  - 'root hard core unlimited'
+  - 'root soft nofile 8192'
+  - 'root hard nofile 8192'
   - '* soft core 0'
   - '* hard core 0'
 

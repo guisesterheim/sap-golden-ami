@@ -12,8 +12,8 @@
 - name: Enable TSX
   include_tasks: enable_tsx.yaml
 
-- name: Set 99-sap.conf
-  include_tasks: set_99_sap_conf.yaml
+- name: Configure user limits for SAP
+  include_tasks: rhel/set_99_sap_conf.yaml
 
 - name: Set limits.conf
   include_tasks: set_limits_conf.yaml

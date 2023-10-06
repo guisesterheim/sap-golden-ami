@@ -1,5 +1,8 @@
 ---
 
+- name: Add config-manager config
+  command: dnf config-manager --enable ol8_codeready_builder
+
 - name: Install YUM dependencies
   yum:
     name: "{{ oel_yum_packages }}"

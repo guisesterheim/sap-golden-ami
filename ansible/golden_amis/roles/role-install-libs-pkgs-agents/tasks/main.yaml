@@ -1,5 +1,8 @@
 ---
 
+- name: Install Ansible collections
+  include_tasks: common/install_ansible_collections.yaml
+
 - name: Install dependencies for RedHat
   include_tasks: rhel/install_deps.yaml
   when: ansible_distribution == "RedHat"

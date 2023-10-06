@@ -67,6 +67,8 @@ rhel_8_6_packages:
   - compat-sap-c++-10
   - tuned
   - cairo
+  - xterm
+  - xhost
 
 rhel_group_packages:
   - "@Server"
@@ -112,6 +114,8 @@ oel_yum_packages:
   - rpm-build 
   - make 
   - ansible-core
+  - xterm
+  - xhost
 
 oel_dnf_packages:
   - oracle-database-preinstall-19c

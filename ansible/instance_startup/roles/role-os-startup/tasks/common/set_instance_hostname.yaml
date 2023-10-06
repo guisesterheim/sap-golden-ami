@@ -2,4 +2,10 @@
 
 - name: Set the Instance hostname
   hostname:
-    name: "{{ GLOBAL_HOSTNAME_FQDN }}"
+    name: "{{ GLOBAL_HOSTNAME }}"
+
+- name: Update /etc/hosts with the FQDN hostname
+  lineinfile:
+    state: present
+    path: "{{ etc_hosts_full_path }}"
+    line: "{{ ansible_default_ipv4.address }} {{ GLOBAL_HOSTNAME_FQDN }} {{ GLOBAL_HOSTNAME }}"
