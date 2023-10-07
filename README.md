@@ -30,13 +30,30 @@ EOF
 7. Install AWS CLI like shown here: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 
-sudo yum install -y git ansible-core
 
-ansible-galaxy collection install community.general
-ansible-galaxy collection install ansible.posix
+
+# Temporary commands to handle Ansible
+
+rm -rf ansible.zip
+zip -r ansible.zip ansible/*
+aws s3 cp ansible.zip s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip
+
+
 
 ansible_playbook_folder="/home/ec2-user/ansible"
-aws s3 cp s3://pdev-bell-ec2-image-builder/ec2-image-builder/components/RHEL/files/ansible.zip /home/ec2-user/ansible.zip
+rm -rf $ansible_playbook_folder
+
+sudo yum install -y git ansible-core
+aws s3 cp s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip /home/ec2-user/ansible.zip
 unzip /home/ec2-user/ansible.zip
 
-ansible-playbook /home/ec2-user/ansible/golden_amis/bootstrap_instance.yaml
+sudo ansible-playbook $ansible_playbook_folder/golden_amis/bootstrap_instance.yaml
+
+
+
+
+ansible_playbook_folder="/home/ec2-user/ansible"
+rm -rf $ansible_playbook_folder
+
+aws s3 cp s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip /home/ec2-user/ansible.zip
+unzip /home/ec2-user/ansible.zip

@@ -1,6 +1,6 @@
 ---
 
-- name: Check if all required disks are attached for {{ CONSTANT_HANA }}
+- name: Check attached disks
   set_fact: filtered_disks="{{ ansible_devices | map('regex_search', '^' + regex_to_look_for_disks ) | select ('string') | list }}"
   retries: 60
   delay: 5
