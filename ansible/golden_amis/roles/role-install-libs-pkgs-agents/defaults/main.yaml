@@ -116,6 +116,7 @@ oel_yum_packages:
   - ansible-core
   - xterm
   - xhost
+  - xorg-x11-apps
 
 oel_dnf_packages:
   - oracle-database-preinstall-19c

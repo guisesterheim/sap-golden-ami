@@ -1,15 +1,5 @@
 ---
 
-# - name: Show lv to create
-#   debug:
-#     msg: "LV do {{ item['os_path_to_mount'] }} = {{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
-#   loop: "{{ ebs_full_map }}"
-
-# - name: Show vg to create
-#   debug:
-#     msg: "VG do {{ item['os_path_to_mount'] }} = {{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
-#   loop: "{{ ebs_full_map }}"
-
 - name: Create the physical volumes and volume group
   lvg:
     vg: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"

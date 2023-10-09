@@ -57,3 +57,4 @@ rm -rf $ansible_playbook_folder
 
 aws s3 cp s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip /home/ec2-user/ansible.zip
 unzip /home/ec2-user/ansible.zip
+

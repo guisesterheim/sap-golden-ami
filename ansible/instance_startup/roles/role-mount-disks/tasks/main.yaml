@@ -4,7 +4,7 @@
   include_tasks: mount_efs.yaml
   when: INPUT_REQUIRED_EFS_TO_MOUNT is defined
 
-- name: Waits for 3 minute to give Terraform the time to mount EBS volumes properly
+- name: Waits for 3 minutes to give Terraform the time to mount EBS volumes properly
   pause:
     minutes: 3
 
