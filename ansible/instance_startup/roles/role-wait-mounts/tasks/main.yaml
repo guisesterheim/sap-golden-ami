@@ -1,0 +1,5 @@
+---
+
+- name: Waits for 3 minutes to give Terraform the time to mount EBS volumes properly
+  pause:
+    minutes: 3
