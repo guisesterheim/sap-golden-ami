@@ -8,6 +8,10 @@ awk_position_command: awk '{ print $18 }'
 sed_replace_command: sed -e 's/"//g' -e 's/\.*//g'
 
 disk_mapping_folder:
+  - key: swap
+    value:
+      vg: vg_swap
+      lv: lv_swap
   - key: /tmp
     value:
       vg: vg_tmp

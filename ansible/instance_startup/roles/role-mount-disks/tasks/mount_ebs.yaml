@@ -8,6 +8,3 @@
 
 - name: Mount common EBS
   include_tasks: mount_common_ebs.yaml
-
-# - name: Mount disks for Swap
-#   include_tasks: check_swap_enabled.yaml

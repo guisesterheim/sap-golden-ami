@@ -19,7 +19,7 @@ users_to_create:
     uid: 3099
     primary_group: sapsys
     groups: sapsys
-  - name: s76adm
+  - name: q76adm
     uid: 4376
     primary_group: sapsys
     groups: sapsys,sapinst
@@ -27,7 +27,7 @@ users_to_create:
     uid: 4371
     primary_group: sapsys
     groups: sapsys,sapinst
-  - name: oras76
+  - name: oraq76
     uid: 4377
     primary_group: dba
     groups: dba,oper
