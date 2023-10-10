@@ -1,0 +1,24 @@
+---
+
+- name: Create the physical volumes and volume group
+  lvg:
+    vg: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
+    pvs: "{{ item['internal_device'] }}"
+  when: item['os_path_to_mount'] != ''
+  loop: "{{ ebs_full_map }}"
+
+- name: Create the logical volumes
+  lvol:
+    vg: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
+    lv: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
+    size: 100%VG
+    opts: "-i 1" # TODO update number 1 to use the number of volumes plugged in
+  when: item['os_path_to_mount'] != ''
+  loop: "{{ ebs_full_map }}"
+
+- name: Create the filesystems
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
+  when: item['os_path_to_mount'] != '' and item['os_path_to_mount'] != 'swap'
+  loop: "{{ ebs_full_map }}"

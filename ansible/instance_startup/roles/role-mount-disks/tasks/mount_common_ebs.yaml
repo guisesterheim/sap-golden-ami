@@ -1,32 +1,7 @@
 ---
 
-- name: Create the physical volumes and volume group
-  lvg:
-    vg: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
-    pvs: "{{ item['internal_device'] }}"
-  when: item['os_path_to_mount'] != ''
-  loop: "{{ ebs_full_map }}"
-
-- name: Create the logical volumes
-  lvol:
-    vg: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
-    lv: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
-    size: 100%VG
-    opts: "-i 1" # TODO update number 1 to use the number of volumes plugged in
-  when: item['os_path_to_mount'] != ''
-  loop: "{{ ebs_full_map }}"
-
-- name: Create the filesystems
-  filesystem:
-    fstype: xfs
-    dev: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
-  when: item['os_path_to_mount'] != '' and item['os_path_to_mount'] != 'swap'
-  loop: "{{ ebs_full_map }}"
-
-- name: Show
-  debug:
-    msg: "{{ item }}"
-  loop: "{{ ebs_full_map }}"
+- name: Create LVs, VGs, PVs and the filesystems
+  include_tasks: create_file_systems.yaml
 
 - name: Register filesystems to /etc/fstab
   lineinfile:
@@ -36,16 +11,5 @@
   when: item['os_path_to_mount'] != '' and item['os_path_to_mount'] != 'swap'
   loop: "{{ ebs_full_map }}"
 
-- name: Create the filesystem for SWAP
-  shell: mkswap /dev/{{ volume_group_hana_swap }}/{{ logical_volume_hana_swap }}
-  loop: "{{ ebs_full_map }}"
-  when: item['os_path_to_mount'] == 'swap'
-  
-- name: Register filesystem to /etc/fstab for SWAP
-  lineinfile:
-    name: /etc/fstab
-    line: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }} swap swap defaults 0 0"
-    state: present
-    insertafter: EOF
-  loop: "{{ ebs_full_map }}"
-  when: item['os_path_to_mount'] == 'swap'
+- name: Mount SWAP
+  include_tasks: mount_swap.yaml

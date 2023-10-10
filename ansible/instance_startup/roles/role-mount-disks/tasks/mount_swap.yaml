@@ -1,0 +1,15 @@
+---
+
+- name: Create the filesystem for SWAP
+  shell: mkswap /dev/{{ volume_group_hana_swap }}/{{ logical_volume_hana_swap }}
+  loop: "{{ ebs_full_map }}"
+  when: item['os_path_to_mount'] == 'swap'
+  
+- name: Register filesystem to /etc/fstab for SWAP
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }} swap swap defaults 0 0"
+    state: present
+    insertafter: EOF
+  loop: "{{ ebs_full_map }}"
+  when: item['os_path_to_mount'] == 'swap'
