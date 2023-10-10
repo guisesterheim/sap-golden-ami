@@ -7,3 +7,7 @@
 - name: Mount EBS
   include_tasks: mount_ebs.yaml
   when: INPUT_EBS_MAP_TO_MOUNT is defined
+
+- name: Create custom oracle folders
+  include_tasks: create_oracle_folders.yaml
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_ORACLE

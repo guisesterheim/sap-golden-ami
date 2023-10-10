@@ -1,0 +1,12 @@
+---
+
+- name: Find oracle internal devices
+  set_fact: 
+    oracle_internal_devices: "{{ oracle_internal_devices | default([]) + [ '/dev/' + item.item ] }}"
+  loop: "{{ mount_types_complete.results }}"
+  when: item.stdout in oracle_devices
+  no_log: yes
+
+- name: Add /oracle to the final list
+  set_fact: 
+    ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : oracle_devices, 'internal_device': oracle_internal_devices, 'os_path_to_mount': '/oracle' }] }}"

@@ -13,17 +13,27 @@
 - name: Convert input map
   set_fact: 
     ebs_input_map: "{{ INPUT_EBS_MAP_TO_MOUNT | from_yaml | dict2items }}"
-
+  
 - name: Register EBS list
   set_fact: 
     ebs_list: "{{ ebs_list | default([]) + [{ 'key' : item['value']['device_name'], 'value' : item['value']['os_path_to_mount'] }] }}"
   loop: "{{ ebs_input_map }}"
 
-- name: Register fact with stdout for mount types
+- name: Find volumes for /oracle only
   set_fact: 
-    ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : item.stdout, 'internal_device': '/dev/' + item.item, 'os_path_to_mount': (ebs_list | selectattr('key', 'equalto', item.stdout) | map(attribute='value')) | join('') }] }}"
+    oracle_devices: "{{ oracle_devices | default([]) + [item['value']['device_name']] }}"
+  when: item['value']['os_path_to_mount'] == '/oracle'
+  loop: "{{ ebs_input_map }}"
+
+- name: Create EBS full map without oracle
+  set_fact: 
+    ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : item.stdout, 'internal_device': ['/dev/' + item.item], 'os_path_to_mount': (ebs_list | selectattr('key', 'equalto', item.stdout) | map(attribute='value')) | join('') }] }}"
   loop: "{{ mount_types_complete.results }}"
+  when: not item.stdout in oracle_devices
   no_log: yes
+
+- name: Parse oracle input
+  include_tasks: parse_oracle_input.yaml
 
 - name: Show EBS devices to mount
   debug:

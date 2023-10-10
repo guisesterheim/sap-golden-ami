@@ -12,11 +12,11 @@
   roles:
     - role: role-user-creation
 
-# - name: Wait for Terraform to mount all disks
-#   become: true
-#   hosts: localhost
-#   roles:
-#     - role: role-wait-mounts
+- name: Wait for Terraform to mount all disks
+  become: true
+  hosts: localhost
+  roles:
+    - role: role-wait-mounts
 
 - name: Mount disks
   become: true

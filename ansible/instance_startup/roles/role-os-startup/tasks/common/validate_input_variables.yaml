@@ -10,6 +10,11 @@
     msg: "The input parameter INPUT_AWS_REGION is not informed. Please check it and try again"
   when: not INPUT_AWS_REGION is defined
 
+- name: Halt execution if SID is not found
+  fail:
+    msg: "The input parameter INPUT_SID is not informed. Please check it and try again"
+  when: not INPUT_SID is defined
+
 - name: Halt execution if OS CONFIG TYPE is not found
   fail:
     msg: "The input parameter INPUT_OS_CONFIG_TYPE is not informed. Please check it and try again"

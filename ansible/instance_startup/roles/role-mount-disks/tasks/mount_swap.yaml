@@ -3,6 +3,7 @@
 - name: Check if swap is already mounted
   shell: swapon | grep -c /dev/
   register: swapon_result
+  ignore_errors: yes
 
 - name: Create the filesystem for SWAP
   shell: mkswap /dev/{{ volume_group_hana_swap }}/{{ logical_volume_hana_swap }}

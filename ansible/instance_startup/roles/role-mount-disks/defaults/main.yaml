@@ -60,94 +60,31 @@ disk_mapping_folder:
     value:
       vg: vg_oracle
       lv: lv_oracle
-  - key: /oracle/stage
-    value:
-      vg: vg_oracle_stage
-      lv: lv_oracle_stage
-  - key: /oracle/SID
-    value:
-      vg: vg_oracle_sid
-      lv: lv_oracle_sid
-  - key: /oracle/SID/origlogA
-    value:
-      vg: vg_oracle_sid_origlogA
-      lv: lv_oracle_sid_origlogA
-  - key: /oracle/SID/origlogB
-    value:
-      vg: vg_oracle_sid_origlogB
-      lv: lv_oracle_sid_origlogB
-  - key: /oracle/SID/origlogC
-    value:
-      vg: vg_oracle_sid_origlogC
-      lv: lv_oracle_sid_origlogC
-  - key: /oracle/SID/mirrlogA
-    value:
-      vg: vg_oracle_sid_mirrlogA
-      lv: lv_oracle_sid_mirrlogA
-  - key: /oracle/SID/mirrlogB
-    value:
-      vg: vg_oracle_sid_mirrlogB
-      lv: lv_oracle_sid_mirrlogB
-  - key: /oracle/SID/mirrlogC
-    value:
-      vg: vg_oracle_sid_mirrlogC
-      lv: lv_oracle_sid_mirrlogC
-  - key: /oracle/SID/sapreorg
-    value:
-      vg: vg_oracle_sid_sapreorg
-      lv: lv_oracle_sid_sapreorg
-  - key: /oracle/SID/oraarch
-    value:
-      vg: vg_oracle_sid_oraarch
-      lv: lv_oracle_sid_oraarch
-  - key: /oracle/SID/sapdata1
-    value:
-      vg: vg_oracle_sid_sapdata1
-      lv: lv_oracle_sid_sapdata1
-  - key: /oracle/SID/sapdata2
-    value:
-      vg: vg_oracle_sid_sapdata2
-      lv: lv_oracle_sid_sapdata2
-  - key: /oracle/SID/sapdata3
-    value:
-      vg: vg_oracle_sid_sapdata3
-      lv: lv_oracle_sid_sapdata3
-  - key: /oracle/SID/sapdata4
-    value:
-      vg: vg_oracle_sid_sapdata4
-      lv: lv_oracle_sid_sapdata4
-  - key: /oracle/SID/sapdata5
-    value:
-      vg: vg_oracle_sid_sapdata5
-      lv: lv_oracle_sid_sapdata5
-  - key: /oracle/SID/sapdata6
-    value:
-      vg: vg_oracle_sid_sapdata6
-      lv: lv_oracle_sid_sapdata6
-  - key: /oracle/SID/sapdata7
-    value:
-      vg: vg_oracle_sid_sapdata7
-      lv: lv_oracle_sid_sapdata7
-  - key: /oracle/SID/sapdata8
-    value:
-      vg: vg_oracle_sid_sapdata8
-      lv: lv_oracle_sid_sapdata8
-  - key: /oracle/SID/sapdata9
-    value:
-      vg: vg_oracle_sid_sapdata9
-      lv: lv_oracle_sid_sapdata9
-  - key: /oracle/SID/sapdata10
-    value:
-      vg: vg_oracle_sid_sapdata10
-      lv: lv_oracle_sid_sapdata10
-  - key: /oracle/SID/sapdata11
-    value:
-      vg: vg_oracle_sid_sapdata11
-      lv: lv_oracle_sid_sapdata11
-  - key: /oracle/SID/sapdata12
-    value:
-      vg: vg_oracle_sid_sapdata12
-      lv: lv_oracle_sid_sapdata12
+
+oracle_folders_to_create:
+  - /oracle
+  - /oracle/stage
+  - /oracle/{{ GLOBAL_SID }}
+  - /oracle/{{ GLOBAL_SID }}/origlogA
+  - /oracle/{{ GLOBAL_SID }}/origlogB
+  - /oracle/{{ GLOBAL_SID }}/origlogC
+  - /oracle/{{ GLOBAL_SID }}/mirrlogA
+  - /oracle/{{ GLOBAL_SID }}/mirrlogB
+  - /oracle/{{ GLOBAL_SID }}/mirrlogC
+  - /oracle/{{ GLOBAL_SID }}/sapreorg
+  - /oracle/{{ GLOBAL_SID }}/oraarch
+  - /oracle/{{ GLOBAL_SID }}/sapdata1
+  - /oracle/{{ GLOBAL_SID }}/sapdata2
+  - /oracle/{{ GLOBAL_SID }}/sapdata3
+  - /oracle/{{ GLOBAL_SID }}/sapdata4
+  - /oracle/{{ GLOBAL_SID }}/sapdata5
+  - /oracle/{{ GLOBAL_SID }}/sapdata6
+  - /oracle/{{ GLOBAL_SID }}/sapdata7
+  - /oracle/{{ GLOBAL_SID }}/sapdata8
+  - /oracle/{{ GLOBAL_SID }}/sapdata9
+  - /oracle/{{ GLOBAL_SID }}/sapdata10
+  - /oracle/{{ GLOBAL_SID }}/sapdata11
+  - /oracle/{{ GLOBAL_SID }}/sapdata12  
 
 hana_data_disk_type_pattern:
   - xvdf
