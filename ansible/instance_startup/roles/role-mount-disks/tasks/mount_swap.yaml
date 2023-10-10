@@ -1,9 +1,13 @@
 ---
 
+- name: Check if swap is already mounted
+  shell: swapon | grep -c /dev/
+  register: swapon_result
+
 - name: Create the filesystem for SWAP
   shell: mkswap /dev/{{ volume_group_hana_swap }}/{{ logical_volume_hana_swap }}
   loop: "{{ ebs_full_map }}"
-  when: item['os_path_to_mount'] == 'swap'
+  when: item['os_path_to_mount'] == 'swap' and swapon_result.stdout == "0"
   
 - name: Register filesystem to /etc/fstab for SWAP
   lineinfile:
@@ -12,4 +16,4 @@
     state: present
     insertafter: EOF
   loop: "{{ ebs_full_map }}"
-  when: item['os_path_to_mount'] == 'swap'
+  when: item['os_path_to_mount'] == 'swap' and swapon_result.stdout == "0"
