@@ -15,8 +15,8 @@ rhel_8_8_packages:
   - gcc
   - glibc.x86_64
   - nvme-cli
-  - tuned-profiles-sap
-  - sapconf
+  # - tuned-profiles-sap
+  # - sapconf
   - libatomic
   - libnsl
   - uuidd
@@ -43,14 +43,14 @@ rhel_8_8_packages:
   - sysstat
   - kernel
   - chrony
-  - corosync
-  - pcs
-  - pacemaker
-  - fence-agents-aws
-  - resource-agents
-  - resource-agents-sap
-  - resource-agents-sap-hana
-  - sap-cluster-connector
+  # - corosync
+  # - pcs
+  # - pacemaker
+  # - fence-agents-aws
+  # - resource-agents
+  # - resource-agents-sap
+  # - resource-agents-sap-hana
+  # - sap-cluster-connector
   - jq
   - net-tools
   - git
@@ -62,8 +62,8 @@ rhel_8_8_packages:
   - openssl
   - rsyslog
   - sudo
-  - compat-sap-c++-9
-  - compat-sap-c++-10
+  # - compat-sap-c++-9
+  # - compat-sap-c++-10
   - tuned
   - cairo
   - xterm

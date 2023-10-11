@@ -18,7 +18,7 @@
 - name: Ensure EFS volumes are mounted
   mount:
     name: "{{ item['value']['full_path'] }}"
-    src: "{{ item['value']['efs_id'] }}{{ ':/' + item['value']['folder_on_efs_to_mount'] | default('') }}"
+    src: "{{ item['value']['efs_id'] }}{{ ':/' + item['value']['folder_on_efs_to_mount'] | default('', true) }}"
     fstype: efs
     opts: "_netdev,tls,mounttargetip={{ item['value']['mount_target_ip'] }}"
     state: mounted

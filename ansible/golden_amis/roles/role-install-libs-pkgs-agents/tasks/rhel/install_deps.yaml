@@ -4,7 +4,7 @@
   yum:
     name: "{{ rhel_8_8_packages }}"
     state: present
-
+  
 - name: Install YUM dependencies group packages
   yum:
     name: "{{ rhel_group_packages }}"
