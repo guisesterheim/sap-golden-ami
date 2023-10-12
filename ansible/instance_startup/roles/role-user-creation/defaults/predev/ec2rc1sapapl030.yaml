@@ -7,18 +7,6 @@ groups_to_create:
     gid: 2000
 
 users_to_create:
-  - name: daaadm
-    uid: 3098
-    primary_group: sapsys
-    groups: sapsys
-  - name: sapadm
-    uid: 3099
-    primary_group: sapsys
-    groups: sapsys
-  - name: sbjadm
-    uid: 3384
-    primary_group: sapsys
-    groups: sapsys,sapinst
   - name: s78adm
     uid: 2006
     primary_group: sapsys
@@ -27,8 +15,11 @@ users_to_create:
     uid: 2072
     primary_group: sapsys
     groups: sapsys,sapinst
-  - name: s73adm
-    uid: 3373
+  - name: daaadm
+    uid: 3098
     primary_group: sapsys
-    groups: sapsys,sapinst
-  
+    groups: sapsys
+  - name: sapadm
+    uid: 3099
+    primary_group: sapsys
+    groups: sapsys
