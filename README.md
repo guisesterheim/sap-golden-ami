@@ -58,27 +58,28 @@ rm -rf $ansible_playbook_folder
 aws s3 cp s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip /home/ec2-user/ansible.zip
 unzip /home/ec2-user/ansible.zip
 
-sudo ansible-playbook /home/ec2-user/ansible/instance_startup/instance_startup.yaml     --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_SID=M77 INPUT_OS_CONFIG_TYPE=NETWEAVER INPUT_OS_TYPE=OEL8.8 INPUT_HOSTNAME=ec2rc1sapapl011 INPUT_HOSTNAME_FQDN=ec2rc1sapapl011itsre-sap-predev.cac1.aws.int.bell.ca INPUT_ENVIRONMENT=predev INPUT_REQUIRED_EFS_TO_MOUNT=\"sapmedia:
-  efs_id: fs-02d0ad1da59cc2b80
+sudo ansible-playbook /home/ec2-user/ansible/instance_startup/instance_startup.yaml     --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_SID=M77 INPUT_OS_CONFIG_TYPE=ORACLE INPUT_OS_TYPE=OEL8.8 INPUT_HOSTNAME=ec2rc1sapapl052 INPUT_HOSTNAME_FQDN=ec2rc1sapapl052itsre-sap-predev.cac1.aws.int.bell.ca INPUT_ENVIRONMENT=predev INPUT_REQUIRED_EFS_TO_MOUNT=\"sapmedia:
+  efs_id: fs-0ae7795310b554577
   folder_on_efs_to_mount:
   full_path: /sapmedia
-  mount_target_ip: 10.78.120.12
+  mount_target_ip: 10.78.120.62
 sapmnt_ecc:
-  efs_id: fs-0cd54cbf512ac2add
+  efs_id: fs-0a707e00743819234
   folder_on_efs_to_mount: ecc-predev-sapmnt
   full_path: /sapmnt
-  mount_target_ip: 10.78.120.31
-saptrans_ecc:
-  efs_id: fs-0ae1696188d1606ff
-  folder_on_efs_to_mount:
-  full_path: /saptrans
-  mount_target_ip: 10.78.120.54
+  mount_target_ip: 10.78.120.53
 \" INPUT_EBS_MAP_TO_MOUNT=\"etc_tivoli:
   device_name: /dev/xvdl
   os_path_to_mount: /etc/Tivoli
 opt_ibm_tws930:
   device_name: /dev/xvdn
   os_path_to_mount: /opt/IBM/tws930
+sapdump:
+  device_name: /dev/xvdac
+  os_path_to_mount: /sapdump
+sapdump2:
+  device_name: /dev/xvdad
+  os_path_to_mount: /sapdump
 oracle:
   device_name: /dev/xvdaa
   os_path_to_mount: /oracle

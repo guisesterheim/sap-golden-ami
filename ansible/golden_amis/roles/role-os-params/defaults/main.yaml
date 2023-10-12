@@ -21,12 +21,12 @@ limits_conf_configs:
 
 ninetynine_sap_conf_full_path: /etc/security/limits.d/99-sap.conf
 rhel_ninetynine_sap_conf_configs:
-  - '@sapsys hard nproc unlimited' 
-  - '@sapsys soft nproc unlimited' 
-  - '@dba hard nproc unlimited'
-  - '@dba soft nproc unlimited'
-  - '* soft core 0'
-  - '* hard core 0'
+  - '@sapsys - nofile 1048576'
+  - '@dba    - nofile 1048576'
+  - '@sdba   - nofile 1048576'
+  - '@sapsys - nproc unlimited' 
+  - '@dba - nproc unlimited'
+  - '* - core 0'
   
 oel_ninetynine_sap_conf_configs:
   - '@sapsys hard nproc unlimited'

@@ -1,7 +1,7 @@
 ---
 
 - name: Parse input params
-  include_tasks: parse_input.yaml
+  include_tasks: parse_input/parse_input.yaml
 
 - name: Create folders
   include_tasks: create_folders.yaml

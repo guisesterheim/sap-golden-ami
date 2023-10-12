@@ -60,6 +60,10 @@ disk_mapping_folder:
     value:
       vg: vg_oracle
       lv: lv_oracle
+  - key: /sapdump
+    value:
+      vg: vg_sapdump
+      lv: lv_sapdump
 
 oracle_folders_to_create:
   - /oracle

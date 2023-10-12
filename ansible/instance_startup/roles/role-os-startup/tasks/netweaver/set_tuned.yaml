@@ -5,6 +5,6 @@
   loop:
     - sysctl --system
     - tuned --daemon
-    - tuned-adm profile sap-netweaver
+    # - tuned-adm profile sap-netweaver
     - tuned-adm active
   when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_NETWEAVER

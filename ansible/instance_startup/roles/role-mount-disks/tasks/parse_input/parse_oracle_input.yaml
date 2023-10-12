@@ -10,3 +10,4 @@
 - name: Add /oracle to the final list
   set_fact: 
     ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : oracle_devices, 'internal_device': oracle_internal_devices, 'os_path_to_mount': '/oracle' }] }}"
+  ignore_errors: yes

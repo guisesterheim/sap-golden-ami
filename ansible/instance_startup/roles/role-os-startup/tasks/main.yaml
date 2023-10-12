@@ -17,3 +17,7 @@
 
 - name: Start UUIDD
   include_tasks: common/start_uuidd.yaml
+
+- name: Disable iptables service
+  include_tasks: oel/disable_iptables.yaml
+  when: ansible_distribution == "OracleLinux"

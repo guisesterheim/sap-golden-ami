@@ -1,0 +1,13 @@
+---
+
+- name: Find sapdump internal devices
+  set_fact: 
+    sapdump_internal_devices: "{{ sapdump_internal_devices | default([]) + [ '/dev/' + item.item ] }}"
+  loop: "{{ mount_types_complete.results }}"
+  when: item.stdout in sapdump_devices
+  no_log: yes
+
+- name: Add /sapdump to the final list
+  set_fact: 
+    ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : sapdump_devices, 'internal_device': sapdump_internal_devices, 'os_path_to_mount': '/sapdump' }] }}"
+  ignore_errors: yes
