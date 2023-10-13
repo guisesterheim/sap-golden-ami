@@ -6,7 +6,7 @@
 - name: Register filesystems to /etc/fstab
   lineinfile:
     name: /etc/fstab
-    line: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }} {{ item['os_path_to_mount'] }} xfs defaults 1 2"
+    line: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }} {{ item['os_path_to_mount'] }} xfs defaults,nofail 0 2"
     state: present
   when: item['os_path_to_mount'] != '' and item['os_path_to_mount'] != 'swap'
   loop: "{{ ebs_full_map }}"

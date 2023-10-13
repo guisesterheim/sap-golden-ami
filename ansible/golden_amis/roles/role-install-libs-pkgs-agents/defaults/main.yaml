@@ -68,6 +68,8 @@ rhel_8_8_packages:
   - cairo
   - xterm
   - xhost
+  - xorg-x11-apps
+  - pcmics
 
 rhel_group_packages:
   - "@Server"

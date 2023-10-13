@@ -52,7 +52,7 @@ disk_mapping_folder:
     value:
       vg: vg_hana_shared
       lv: lv_hana_shared 
-  - key: /backup
+  - key: /hana/backup
     value:
       vg: vg_hana_backup
       lv: lv_hana_backup

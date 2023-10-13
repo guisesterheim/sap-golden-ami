@@ -58,28 +58,32 @@ rm -rf $ansible_playbook_folder
 aws s3 cp s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip /home/ec2-user/ansible.zip
 unzip /home/ec2-user/ansible.zip
 
-sudo ansible-playbook /home/ec2-user/ansible/instance_startup/instance_startup.yaml     --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_SID=M77 INPUT_OS_CONFIG_TYPE=ORACLE INPUT_OS_TYPE=OEL8.8 INPUT_HOSTNAME=ec2rc1sapapl052 INPUT_HOSTNAME_FQDN=ec2rc1sapapl052itsre-sap-predev.cac1.aws.int.bell.ca INPUT_ENVIRONMENT=predev INPUT_REQUIRED_EFS_TO_MOUNT=\"sapmedia:
+sudo ansible-playbook /home/ec2-user/ansible/instance_startup/instance_startup.yaml     --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_SID=SBH INPUT_OS_CONFIG_TYPE=HANA INPUT_OS_TYPE=RHEL8.8 INPUT_HOSTNAME=ec2rc1sapapl039 INPUT_HOSTNAME_FQDN=ec2rc1sapapl039.itsre-sap-predev.cac1.aws.int.bell.ca INPUT_ENVIRONMENT=predev INPUT_REQUIRED_EFS_TO_MOUNT=\"sapmedia:
   efs_id: fs-0ae7795310b554577
   folder_on_efs_to_mount:
   full_path: /sapmedia
   mount_target_ip: 10.78.120.62
-sapmnt_ecc:
-  efs_id: fs-0a707e00743819234
-  folder_on_efs_to_mount: ecc-predev-sapmnt
-  full_path: /sapmnt
-  mount_target_ip: 10.78.120.53
 \" INPUT_EBS_MAP_TO_MOUNT=\"etc_tivoli:
   device_name: /dev/xvdl
   os_path_to_mount: /etc/Tivoli
+hana_backup:
+  device_name: /dev/xvdk
+  os_path_to_mount: /hana/backup
+hana_data:
+  device_name: /dev/xvdf
+  os_path_to_mount: /hana/data
+hana_data2:
+  device_name: /dev/xvdg
+  os_path_to_mount: /hana/data
+hana_log:
+  device_name: /dev/xvdh
+  os_path_to_mount: /hana/log
+hana_shared:
+  device_name: /dev/xvdj
+  os_path_to_mount: /hana/shared
 opt_ibm_tws930:
   device_name: /dev/xvdn
   os_path_to_mount: /opt/IBM/tws930
-sapdump:
-  device_name: /dev/xvdac
-  os_path_to_mount: /sapdump
-sapdump2:
-  device_name: /dev/xvdad
-  os_path_to_mount: /sapdump
 oracle:
   device_name: /dev/xvdaa
   os_path_to_mount: /oracle
@@ -89,6 +93,12 @@ oracle2:
 sapcd:
   device_name: /dev/xvde
   os_path_to_mount: /SAPCD
+sapdump:
+  device_name: /dev/xvdac
+  os_path_to_mount: /sapdump
+sapdump2:
+  device_name: /dev/xvdac
+  os_path_to_mount: /sapdump
 swap:
   device_name: /dev/xvdo
   os_path_to_mount: swap
@@ -101,6 +111,9 @@ usr_sap:
 usr_sap_daa:
   device_name: /dev/xvdd
   os_path_to_mount: /usr/sap/DAA
+usr_sap_smp:
+  device_name: /dev/xvdp
+  os_path_to_mount: /usr/sap/SMP
 usr_tivoli:
   device_name: /dev/xvdm
   os_path_to_mount: /usr/Tivoli

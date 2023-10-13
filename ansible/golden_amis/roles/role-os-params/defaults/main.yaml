@@ -24,9 +24,6 @@ rhel_ninetynine_sap_conf_configs:
   - '@sapsys - nofile 1048576'
   - '@dba    - nofile 1048576'
   - '@sdba   - nofile 1048576'
-  - '@sapsys - nproc unlimited' 
-  - '@dba - nproc unlimited'
-  - '* - core 0'
   
 oel_ninetynine_sap_conf_configs:
   - '@sapsys hard nproc unlimited'

@@ -1,0 +1,10 @@
+---
+
+- name: Parse oracle input
+  include_tasks: parse_oracle_input.yaml
+
+- name: Parse sapdump input
+  include_tasks: parse_sapdump_input.yaml
+
+- name: Parse hana data input
+  include_tasks: parse_hana_data_input.yaml

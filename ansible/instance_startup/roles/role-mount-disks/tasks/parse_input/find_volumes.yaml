@@ -1,0 +1,19 @@
+---
+
+- name: Find volumes for /sapdump only
+  set_fact: 
+    sapdump_devices: "{{ sapdump_devices | default([]) + [item['value']['device_name']] }}"
+  when: item['value']['os_path_to_mount'] == '/sapdump'
+  loop: "{{ ebs_input_map }}"
+
+- name: Find volumes for /oracle only
+  set_fact: 
+    oracle_devices: "{{ oracle_devices | default([]) + [item['value']['device_name']] }}"
+  when: item['value']['os_path_to_mount'] == '/oracle'
+  loop: "{{ ebs_input_map }}"
+
+- name: Find volumes for /hana/data only
+  set_fact: 
+    hana_data_devices: "{{ hana_data_devices | default([]) + [item['value']['device_name']] }}"
+  when: item['value']['os_path_to_mount'] == '/hana/data'
+  loop: "{{ ebs_input_map }}"

@@ -1,0 +1,13 @@
+---
+
+- name: Find hana/data internal devices
+  set_fact: 
+    hana_data_internal_devices: "{{ hana_data_internal_devices | default([]) + [ '/dev/' + item.item ] }}"
+  loop: "{{ mount_types_complete.results }}"
+  when: item.stdout in hana_data_devices
+  no_log: yes
+
+- name: Add /hana/data to the final list
+  set_fact: 
+    ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : hana_data_devices, 'internal_device': hana_data_internal_devices, 'os_path_to_mount': '/hana/data' }] }}"
+  ignore_errors: yes

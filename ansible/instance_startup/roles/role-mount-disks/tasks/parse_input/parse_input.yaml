@@ -19,30 +19,18 @@
     ebs_list: "{{ ebs_list | default([]) + [{ 'key' : item['value']['device_name'], 'value' : item['value']['os_path_to_mount'] }] }}"
   loop: "{{ ebs_input_map }}"
 
-- name: Find volumes for /sapdump only
-  set_fact: 
-    sapdump_devices: "{{ sapdump_devices | default([]) + [item['value']['device_name']] }}"
-  when: item['value']['os_path_to_mount'] == '/sapdump'
-  loop: "{{ ebs_input_map }}"
+- name: Find volumes for multi-ebs mounts
+  include_tasks: find_volumes.yaml
 
-- name: Find volumes for /oracle only
-  set_fact: 
-    oracle_devices: "{{ oracle_devices | default([]) + [item['value']['device_name']] }}"
-  when: item['value']['os_path_to_mount'] == '/oracle'
-  loop: "{{ ebs_input_map }}"
-
-- name: Create EBS full map without oracle
+- name: Create EBS full map without oracle, sapdump and hana/data
   set_fact: 
     ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : item.stdout, 'internal_device': ['/dev/' + item.item], 'os_path_to_mount': (ebs_list | selectattr('key', 'equalto', item.stdout) | map(attribute='value')) | join('') }] }}"
   loop: "{{ mount_types_complete.results }}"
-  when: not item.stdout in oracle_devices and not item.stdout in sapdump_devices
+  when: not item.stdout in oracle_devices and not item.stdout in sapdump_devices and not item.stdout in hana_data_devices
   no_log: yes
 
-- name: Parse oracle input
-  include_tasks: parse_oracle_input.yaml
-
-- name: Parse sapdump input
-  include_tasks: parse_sapdump_input.yaml
+- name: Parse multi volume inputs
+  include_tasks: parse_multi_ebs_volumes.yaml
 
 - name: Show EBS devices to mount
   debug:
