@@ -10,7 +10,7 @@ variable "environment" {
 
 variable "kms_key_arn" {
   description = "CMK ARN to be used for bucket encryption"
-  type = string
+  type        = string
 }
 
 variable "sse_algorithm" {
@@ -21,7 +21,7 @@ variable "sse_algorithm" {
 
 variable "bucket_name" {
   description = "Name to use for the bucket"
-  type = string
+  type        = string
 }
 
 variable "tags" {

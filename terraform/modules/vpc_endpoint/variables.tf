@@ -1,16 +1,16 @@
 variable "vpc_id" {
   description = "The VPC ID to place the builder instance in"
-  type = string
+  type        = string
 }
 
 variable "environment" {
   description = "The environment for the resources"
-  type = string
+  type        = string
 }
 
 variable "subnet_ids" {
   description = "Subnet IDs to place the VPC endpoint in"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "tags" {

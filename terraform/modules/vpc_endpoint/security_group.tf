@@ -17,5 +17,5 @@ resource "aws_security_group" "sg_endpoint" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge("Name": "sectag-itsre-${var.environment}-cc1-retail-endpoint", var.tags)
+  tags = merge({ "Name" : "sectag-itsre-${var.environment}-cc1-retail-endpoint" }, var.tags)
 }

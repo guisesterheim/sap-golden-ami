@@ -25,32 +25,32 @@ variable "s3_bucket_ec2_image_builder_logs" {
 
 variable "base_ami" {
   description = "Base AMI to be used"
-  type = string
+  type        = string
 }
 
 variable "operating_system" {
   description = "Operating system name for creating components"
-  type = string
+  type        = string
 }
 
 variable "final_usage_of_ami" {
   description = "The final usage for the created AMI. Examples: SAP or Oracle"
-  type = string
+  type        = string
 }
 
 variable "ec2_iam_role_name" {
   description = "Role to be used for building the image"
-  type = string
+  type        = string
 }
 
 variable "subnet_id" {
   description = "The subnet ID to place the builder instance in"
-  type = string
+  type        = string
 }
 
 variable "vpc_id" {
   description = "The VPC ID to place the builder instance in"
-  type = string
+  type        = string
 }
 
 variable "tags" {

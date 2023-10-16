@@ -59,7 +59,7 @@ data "aws_iam_policy_document" "image_builder" {
     resources = ["arn:aws:logs:*:*:log-group:/aws/imagebuilder/*"]
   }
 
-    statement {
+  statement {
     effect = "Allow"
     actions = [
       "kms:Encrypt",

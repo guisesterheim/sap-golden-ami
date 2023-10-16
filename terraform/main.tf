@@ -19,7 +19,7 @@ module "sap_iam_roles" {
   s3_bucket_ec2_image_builder_logs = module.s3_bucket_ec2_image_builder.bucket_name
 
   kms_keys_to_authorize = [
-    data.aws_ssm_parameter.cmk_arn_s3.value, 
+    data.aws_ssm_parameter.cmk_arn_s3.value,
     data.aws_ssm_parameter.cmk_arn_ec2_image_builder.value,
     data.aws_ssm_parameter.crm_arn_ebs.value
   ]

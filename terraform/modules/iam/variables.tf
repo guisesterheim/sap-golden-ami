@@ -20,5 +20,5 @@ variable "s3_bucket_ec2_image_builder_logs" {
 
 variable "kms_keys_to_authorize" {
   description = "KMS keys ARNs to authorize the roles to handle"
-  type = list(string)
+  type        = list(string)
 }

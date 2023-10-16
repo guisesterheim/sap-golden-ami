@@ -5,12 +5,12 @@ locals {
 }
 
 resource "aws_iam_role" "iam_role" {
-  name               = local.iam_instance_role_name
-  assume_role_policy = data.aws_iam_policy_document.iam_instance_trust.json
+  name                 = local.iam_instance_role_name
+  assume_role_policy   = data.aws_iam_policy_document.iam_instance_trust.json
   permissions_boundary = data.aws_iam_policy.permissions_boundary_policy.arn
 
   tags = merge({
-    "Name" = local.iam_instance_role_name,
+    "Name"     = local.iam_instance_role_name,
     "RolePath" = "tenantAccountRoles",
     },
   var.tags)
@@ -32,7 +32,7 @@ resource "aws_iam_policy" "image_builder_policy" {
   policy = data.aws_iam_policy_document.image_builder.json
 
   tags = merge({
-    "Name" = local.iam_policy_name,
+    "Name"       = local.iam_policy_name,
     "PolicyPath" = "tenantAccountPolicy"
     },
   var.tags)

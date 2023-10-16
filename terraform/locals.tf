@@ -6,6 +6,6 @@ locals {
     "Owner"      = "retail-IT"
     "EnvType"    = var.environment
     "ManagedBy"  = "Terraform"
-    "GitHubRepo"  = "https://gitlab.aws.dev/sesterhg/bell-retail-infra"
+    "GitHubRepo" = "https://gitlab.aws.dev/sesterhg/bell-retail-infra"
   }
 }
