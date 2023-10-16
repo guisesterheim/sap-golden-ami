@@ -6,11 +6,11 @@
 - name: Show variables received as input parameters
   include_tasks: common/show_input_variables.yaml
 
-# - name: Set tuned
-#   include_tasks: common/set_tuned.yaml
-#   when:
-#     - GLOBAL_OS_CONFIG_TYPE != CONSTANT_ORACLE
-#     - GLOBAL_OS_TYPE != CONSTANT_OEL_8_8
+- name: Set tuned
+  include_tasks: common/set_tuned.yaml
+  when:
+    - GLOBAL_OS_CONFIG_TYPE != CONSTANT_ORACLE
+    - GLOBAL_OS_TYPE != CONSTANT_OEL_8_8
 
 - name: Set hostname
   include_tasks: common/set_instance_hostname.yaml
