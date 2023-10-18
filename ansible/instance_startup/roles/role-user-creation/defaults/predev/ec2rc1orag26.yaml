@@ -25,11 +25,11 @@ users_to_create:
     uid: 54321
     primary_group: oinstall
     groups: dba, oper
-  - name: oras76
+  - name: oraq76
     uid: 4377
     primary_group: sapsys
     groups: dba,oper,oinstall
-  - name: s76adm
+  - name: q76adm
     uid: 4376
     primary_group: sapsys
     groups: sapsys,sapinst

@@ -12,12 +12,10 @@ rhel_8_8_packages:
   - unzip
   - xfsprogs
   - autofs
+  - libatomic
   - gcc
   - glibc.x86_64
   - nvme-cli
-  # - tuned-profiles-sap
-  # - sapconf
-  - libatomic
   - libnsl
   - uuidd
   - tcsh
@@ -49,8 +47,13 @@ rhel_8_8_packages:
   # - fence-agents-aws
   # - resource-agents
   # - resource-agents-sap
+  # - tuned-profiles-sap
+  # - sapconf
   # - resource-agents-sap-hana
   # - sap-cluster-connector
+  # - compat-sap-c++-9
+  # - compat-sap-c++-10
+  - tuned
   - jq
   - net-tools
   - git
@@ -62,9 +65,6 @@ rhel_8_8_packages:
   - openssl
   - rsyslog
   - sudo
-  # - compat-sap-c++-9
-  # - compat-sap-c++-10
-  - tuned
   - cairo
   - xterm
   - xhost
