@@ -78,7 +78,7 @@ oracle_lv_config:
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata2
         vg: vg_oracle_sid_sapdata
-        size: 950G
+        size: 1000G
         name: lv_oracle_sid_sapdata2
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata3
@@ -88,12 +88,12 @@ oracle_lv_config:
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata4
         vg: vg_oracle_sid_sapdata
-        size: 1010G
+        size: 1070G
         name: lv_oracle_sid_sapdata4
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata5
         vg: vg_oracle_sid_sapdata
-        size: 1020G
+        size: 1030G
         name: lv_oracle_sid_sapdata5
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata6
@@ -103,7 +103,7 @@ oracle_lv_config:
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata7
         vg: vg_oracle_sid_sapdata
-        size: 950G
+        size: 1020G
         name: lv_oracle_sid_sapdata7
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata8
@@ -113,22 +113,22 @@ oracle_lv_config:
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata9
         vg: vg_oracle_sid_sapdata
-        size: 950G
+        size: 1000G
         name: lv_oracle_sid_sapdata9
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata10
         vg: vg_oracle_sid_sapdata
-        size: 980G
+        size: 1060G
         name: lv_oracle_sid_sapdata10
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata11
         vg: vg_oracle_sid_sapdata
-        size: 960G
+        size: 1050G
         name: lv_oracle_sid_sapdata11
         stripes: "{{ M77_stripes_sapdata }}"
       - folder: /oracle/{{ M77_SID }}/sapdata12
         vg: vg_oracle_sid_sapdata
-        size: 970G
+        size: 1200G
         name: lv_oracle_sid_sapdata12
         stripes: "{{ M77_stripes_sapdata }}"
   - key: Q76
@@ -210,7 +210,7 @@ oracle_lv_config:
         stripes: "{{ Q76_stripes_sapdata }}"
       - folder: /oracle/{{ Q76_SID }}/sapdata2
         vg: vg_oracle_sid_sapdata
-        size: 70G
+        size: 90G
         name: lv_oracle_sid_sapdata2
         stripes: "{{ Q76_stripes_sapdata }}"
       - folder: /oracle/{{ Q76_SID }}/sapdata3
@@ -220,6 +220,6 @@ oracle_lv_config:
         stripes: "{{ Q76_stripes_sapdata }}"
       - folder: /oracle/{{ Q76_SID }}/sapdata4
         vg: vg_oracle_sid_sapdata
-        size: 70G
+        size: 90G
         name: lv_oracle_sid_sapdata4
         stripes: "{{ Q76_stripes_sapdata }}"

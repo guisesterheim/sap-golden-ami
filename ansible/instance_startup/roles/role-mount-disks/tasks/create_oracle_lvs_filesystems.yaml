@@ -1,11 +1,6 @@
 ---
 
 - name: Create the logical volumes
-  debug:
-    msg: "{{ item }}"
-  loop: "{{ current_oracle_lv_config }}"
-
-- name: Create the logical volumes
   lvol:
     vg: "{{ item['vg'] }}"
     lv: "{{ item['name'] }}"
