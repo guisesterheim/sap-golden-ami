@@ -6,10 +6,10 @@
   when: item['value']['os_path_to_mount'] == '/sapdump'
   loop: "{{ ebs_input_map }}"
 
-- name: Find volumes for /oracle only
+- name: Find volumes for /oracle/SID/sapdata only
   set_fact: 
-    oracle_devices: "{{ oracle_devices | default([]) + [item['value']['device_name']] }}"
-  when: item['value']['os_path_to_mount'] == '/oracle'
+    oracle_sapdata_devices: "{{ oracle_sapdata_devices | default([]) + [item['value']['device_name']] }}"
+  when: item['value']['os_path_to_mount'] == oracle_sap_data_folder
   loop: "{{ ebs_input_map }}"
 
 - name: Find volumes for /hana/data only

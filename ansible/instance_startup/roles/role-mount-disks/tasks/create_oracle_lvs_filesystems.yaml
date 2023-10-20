@@ -1,0 +1,20 @@
+---
+
+- name: Create the logical volumes
+  debug:
+    msg: "{{ item }}"
+  loop: "{{ current_oracle_lv_config }}"
+
+- name: Create the logical volumes
+  lvol:
+    vg: "{{ item['vg'] }}"
+    lv: "{{ item['name'] }}"
+    size: "{{ item['size'] }}"
+    opts: "--stripes {{ item['stripes'] }} --stripesize 256"
+  loop: "{{ current_oracle_lv_config }}"
+
+- name: Create the filesystems
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ item['vg'] }}/{{ item['name'] }}"
+  loop: "{{ current_oracle_lv_config }}"

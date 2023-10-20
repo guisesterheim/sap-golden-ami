@@ -5,5 +5,14 @@
     path: "{{ item['os_path_to_mount'] }}"
     state: directory
     mode: '0755'
+    recurse: yes
   when: item['os_path_to_mount'] != '' and item['os_path_to_mount'] != 'swap'
+  loop: "{{ ebs_full_map }}"
+
+- name: Fix permissions for the /tmp folder if it exists
+  file:
+    path: "{{ item['os_path_to_mount'] }}"
+    state: directory
+    mode: '0777'
+  when: item['os_path_to_mount'] == '/tmp'
   loop: "{{ ebs_full_map }}"

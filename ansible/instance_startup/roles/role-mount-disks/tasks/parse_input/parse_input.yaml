@@ -26,7 +26,10 @@
   set_fact: 
     ebs_full_map: "{{ ebs_full_map | default([]) + [{ 'device_name' : item.stdout, 'internal_device': ['/dev/' + item.item], 'os_path_to_mount': (ebs_list | selectattr('key', 'equalto', item.stdout) | map(attribute='value')) | join('') }] }}"
   loop: "{{ mount_types_complete.results }}"
-  when: not item.stdout in oracle_devices and not item.stdout in sapdump_devices and not item.stdout in hana_data_devices
+  when: 
+    - not item.stdout in oracle_sapdata_devices
+    - not item.stdout in sapdump_devices
+    - not item.stdout in hana_data_devices
   no_log: yes
 
 - name: Parse multi volume inputs

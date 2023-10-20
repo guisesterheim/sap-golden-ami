@@ -7,4 +7,8 @@
   include_tasks: create_folders.yaml
 
 - name: Mount common EBS
-  include_tasks: mount_common_ebs.yaml
+  include_tasks: mount_ebs_common.yaml
+
+- name: Mount Oracle EBS
+  include_tasks: mount_ebs_oracle.yaml
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_ORACLE

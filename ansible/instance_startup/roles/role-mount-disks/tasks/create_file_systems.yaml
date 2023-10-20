@@ -13,12 +13,15 @@
     lv: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
     size: 100%VG
     opts: "--stripes {{ item['internal_device'] | count }} --stripesize 256"
-  when: item['os_path_to_mount'] != ''
+  when: item['os_path_to_mount'] != '' and not 'oracle' in item['os_path_to_mount']
   loop: "{{ ebs_full_map }}"
 
 - name: Create the filesystems
   filesystem:
     fstype: xfs
     dev: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
-  when: item['os_path_to_mount'] != '' and item['os_path_to_mount'] != 'swap'
+  when: 
+    - item['os_path_to_mount'] != '' 
+    - not 'oracle' in item['os_path_to_mount'] 
+    - item['os_path_to_mount'] != 'swap'
   loop: "{{ ebs_full_map }}"

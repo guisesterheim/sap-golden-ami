@@ -60,6 +60,18 @@ disk_mapping_folder:
     value:
       vg: vg_oracle
       lv: lv_oracle
+  - key: /oracle/{{ GLOBAL_SID }}/sapdata
+    value:
+      vg: vg_oracle_sid_sapdata
+      lv: lv_oracle_sid_sapdata
+  - key: /oracle/{{ GLOBAL_SID }}/origlog
+    value:
+      vg: vg_oracle_sid_origlog
+      lv: lv_oracle_sid_origlog
+  - key: /oracle/{{ GLOBAL_SID }}/mirrlog
+    value:
+      vg: vg_oracle_sid_mirrlog
+      lv: lv_oracle_sid_mirrlog
   - key: /sapdump
     value:
       vg: vg_sapdump
@@ -68,6 +80,8 @@ disk_mapping_folder:
     value:
       vg: vg_usr_sap_smp
       lv: lv_usr_sap_smp
+
+oracle_sap_data_folder: /oracle/{{ GLOBAL_SID }}/sapdata
 
 oracle_folders_to_create:
   - /oracle

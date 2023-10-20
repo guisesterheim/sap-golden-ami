@@ -57,11 +57,16 @@ rm -rf $ansible_playbook_folder
 aws s3 cp s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip /home/ec2-user/ansible.zip
 unzip /home/ec2-user/ansible.zip
 
-sudo ansible-playbook /home/ec2-user/ansible/instance_startup/instance_startup.yaml     --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_SID=SBH INPUT_OS_CONFIG_TYPE=HANA INPUT_OS_TYPE=RHEL8.8 INPUT_HOSTNAME=ec2rc1hana39 INPUT_HOSTNAME_FQDN=ec2rc1hana39.itsre-sap-predev.cac1.aws.int.bell.ca INPUT_ENVIRONMENT=predev INPUT_REQUIRED_EFS_TO_MOUNT=\"sapmedia:
+sudo ansible-playbook /home/ec2-user/ansible/instance_startup/instance_startup.yaml     --extra-vars "INPUT_AWS_REGION=ca-central-1 INPUT_SID=M77 INPUT_OS_CONFIG_TYPE=ORACLE INPUT_OS_TYPE=OEL8.8 INPUT_HOSTNAME=ec2rc1orae16 INPUT_HOSTNAME_FQDN=ec2rc1orae16.itsre-sap-predev.cac1.aws.int.bell.ca INPUT_ENVIRONMENT=predev INPUT_REQUIRED_EFS_TO_MOUNT=\"sapmedia:
   efs_id: fs-0ae7795310b554577
   folder_on_efs_to_mount:
   full_path: /sapmedia
   mount_target_ip: 10.78.120.62
+sapmnt_ecc:
+  efs_id: fs-0a707e00743819234
+  folder_on_efs_to_mount: ecc-predev-sapmnt
+  full_path: /sapmnt
+  mount_target_ip: 10.78.120.53
 \" INPUT_EBS_MAP_TO_MOUNT=\"etc_tivoli:
   device_name: /dev/xvdl
   os_path_to_mount: /etc/Tivoli
@@ -88,7 +93,19 @@ oracle:
   os_path_to_mount: /oracle
 oracle2:
   device_name: /dev/xvdab
-  os_path_to_mount: /oracle
+  os_path_to_mount: /oracle/M77/mirrlog
+oracle3:
+  device_name: /dev/xvdae
+  os_path_to_mount: /oracle/M77/origlog
+oracle4:
+  device_name: /dev/xvdaf
+  os_path_to_mount: /oracle/M77/sapdata
+oracle5:
+  device_name: /dev/xvdag
+  os_path_to_mount: /oracle/M77/sapdata
+oracle6:
+  device_name: /dev/xvdah
+  os_path_to_mount: /oracle/M77/sapdata
 sapcd:
   device_name: /dev/xvde
   os_path_to_mount: /SAPCD

@@ -1,0 +1,18 @@
+---
+
+- name: Include oracle folders and SIDs to be created for "{{ GLOBAL_ENVIRONMENT }}" environment
+  include_vars: "defaults/{{ GLOBAL_ENVIRONMENT }}/oracle_ebs.yaml"
+
+- name: Filter current SID's volumes and folders to create
+  set_fact:
+    current_oracle_lv_config: "{{ oracle_lv_config | selectattr('key', 'equalto', GLOBAL_SID) | map(attribute='value') | flatten }}"
+
+- name: Create LVs, VGs, PVs and the filesystems
+  include_tasks: create_oracle_lvs_filesystems.yaml
+
+- name: Register filesystems to /etc/fstab
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ item['vg'] }}/{{ item['name'] }} {{ item['folder'] }} xfs defaults,nofail 0 2"
+    state: present
+  loop: "{{ current_oracle_lv_config }}"
