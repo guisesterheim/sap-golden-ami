@@ -41,18 +41,19 @@ rhel_8_8_packages:
   - sysstat
   - kernel
   - chrony
-  # - corosync
-  # - pcs
-  # - pacemaker
-  # - fence-agents-aws
-  # - resource-agents
-  # - resource-agents-sap
-  # - tuned-profiles-sap
-  # - sapconf
-  # - resource-agents-sap-hana
-  # - sap-cluster-connector
-  # - compat-sap-c++-9
-  # - compat-sap-c++-10
+  - corosync
+  - pcs
+  - pacemaker
+  - fence-agents-aws
+  - resource-agents
+  - resource-agents-sap
+  - tuned-profiles-sap
+  - tuned-profiles-sap-hana
+  - sapconf
+  - resource-agents-sap-hana
+  - sap-cluster-connector
+  - compat-sap-c++-9
+  - compat-sap-c++-10
   - tuned
   - jq
   - net-tools
@@ -69,7 +70,6 @@ rhel_8_8_packages:
   - xterm
   - xhost
   - xorg-x11-apps
-  - pcmics
 
 rhel_group_packages:
   - "@Server"

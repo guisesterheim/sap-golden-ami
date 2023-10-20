@@ -22,4 +22,6 @@
     fstype: efs
     opts: "_netdev,tls,mounttargetip={{ item['value']['mount_target_ip'] }}"
     state: mounted
+    dump: "0"
+    passno: "2"
   loop: "{{ mounts_map }}"

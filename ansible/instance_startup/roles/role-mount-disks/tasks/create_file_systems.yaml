@@ -12,7 +12,7 @@
     vg: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}"
     lv: "{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }}"
     size: 100%VG
-    opts: "-i {{ item['internal_device'] | count }}" # TODO update number 1 to use the number of volumes plugged in
+    opts: "--stripes {{ item['internal_device'] | count }} --stripesize 256"
   when: item['os_path_to_mount'] != ''
   loop: "{{ ebs_full_map }}"
 

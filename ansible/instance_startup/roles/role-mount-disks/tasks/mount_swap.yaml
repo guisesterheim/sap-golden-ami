@@ -13,7 +13,7 @@
 - name: Register filesystem to /etc/fstab for SWAP
   lineinfile:
     name: /etc/fstab
-    line: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }} swap swap defaults 0 0"
+    line: "/dev/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='vg') | join('') }}/{{ disk_mapping_folder | selectattr('key', 'equalto', item['os_path_to_mount']) | map(attribute='value') | map(attribute='lv') | join('') }} swap swap defaults,nofail 0 2"
     state: present
     insertafter: EOF
   loop: "{{ ebs_full_map }}"
