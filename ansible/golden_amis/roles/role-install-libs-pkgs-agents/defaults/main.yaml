@@ -1,5 +1,13 @@
 ---
 
+proxy_configuration:
+  HTTPS_PROXY: http://fastweb.cac1.aws.int.bell.ca:80
+  HTTP_PROXY: http://fastweb.cac1.aws.int.bell.ca:80
+  https_proxy: http://fastweb.cac1.aws.int.bell.ca:80
+  http_proxy: http://fastweb.cac1.aws.int.bell.ca:80
+  no_proxy: 10.78.120.0/25,localhost,127.0.0.1,169.254.169.254,.internal,.eks.amazonaws.com,eks.ca-central-1.amazonaws.com,api.ecr.ca-central-1.amazonaws.com,dkr.ecr.ca-central-1.amazonaws.com,ec2.ca-central-1.amazonaws.com,sts.ca-central-1.amazonaws.com,int.bell.ca,gitlab.int.bell.ca,ht-docker-prod.artifactory.int.bell.ca,imagebuilder.ca-central-1.amazonaws.com
+  NO_PROXY: 10.78.120.0/25,localhost,127.0.0.1,169.254.169.254,.internal,.eks.amazonaws.com,eks.ca-central-1.amazonaws.com,api.ecr.ca-central-1.amazonaws.com,dkr.ecr.ca-central-1.amazonaws.com,ec2.ca-central-1.amazonaws.com,sts.ca-central-1.amazonaws.com,int.bell.ca,gitlab.int.bell.ca,ht-docker-prod.artifactory.int.bell.ca,imagebuilder.ca-central-1.amazonaws.com
+
 aws_installer_dir: /tmp/aws
 
 rhel_data_provider_url: https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm

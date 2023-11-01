@@ -8,7 +8,6 @@ phases:
         action: ExecuteBash
         inputs:
           commands:
-            - echo "starting"
             - linux_distro=$(rpm -qf /etc/redhat-release)
             - if [[ $linux_distro == *"oraclelinux"* ]]; then
             -   sudo dnf install -y epel-release
@@ -16,20 +15,15 @@ phases:
             - else
             -   sudo yum install -y git ansible-core
             - fi
-            - echo "after yum"
             - sudo ansible-galaxy collection install community.general
             - sudo ansible-galaxy collection install ansible.posix
-            - echo "after galaxy"
       - name: DownloadPlaybook
         action: ExecuteBash
         inputs:
           commands:
             - ansible_playbook_folder="/home/ec2-user/ansible"
-            - echo "before s3 cp"
-            - aws s3 cp s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/RHEL/files/ansible.zip /home/ec2-user/ansible.zip
-            - echo "after s3 cp"
+            - aws s3 cp s3://itsre-predev-bell-ec2-image-builder/ec2-image-builder/components/OEL/files/ansible.zip /home/ec2-user/ansible.zip
             - unzip /home/ec2-user/ansible.zip
-            - echo "after unzip"
       - name: InvokeAnsible
         action: ExecuteBinary
         inputs:

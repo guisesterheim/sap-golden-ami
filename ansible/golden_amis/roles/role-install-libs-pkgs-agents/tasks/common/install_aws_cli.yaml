@@ -11,6 +11,7 @@
     url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
     dest: "{{ aws_installer_dir }}/awscliv2.zip"
     mode: '0777'
+  environment: "{{ proxy_configuration }}"
 
 - name: Unzip AWS CLI install package
   unarchive: 

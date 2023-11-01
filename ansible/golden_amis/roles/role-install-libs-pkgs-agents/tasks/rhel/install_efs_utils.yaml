@@ -7,6 +7,7 @@
 
 - name: Clone efs-utils repo
   command: git clone https://github.com/aws/efs-utils /tmp/efs-utils
+  environment: "{{ proxy_configuration }}"
 
 - name: Make rpm
   command: make clean rpm
