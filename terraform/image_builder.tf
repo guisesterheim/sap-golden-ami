@@ -9,6 +9,9 @@ module "ec2_image_builder" {
 
   operating_system                 = each.value["operating_system"]
   final_usage_of_ami               = each.value["final_usage_of_ami"]
+  target_account_ids = each.value["target_account_ids"]
+  versions = each.value["versions"]
+  version_to_publish = each.value["version_to_publish"]
 
   base_ami                         = local.available_amis[each.value["base_ami"]]
   s3_bucket_ec2_image_builder_logs = module.s3_bucket_ec2_image_builder.bucket_name

@@ -30,8 +30,6 @@ EOF
 7. Install AWS CLI like shown here: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 
-
-
 # Temporary commands to handle Ansible
 
 rm -rf ansible.zip

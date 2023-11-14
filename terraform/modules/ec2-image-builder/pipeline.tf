@@ -2,7 +2,7 @@ resource "aws_imagebuilder_image_pipeline" "this" {
   name                             = "itsre-${var.environment}-${var.operating_system}-AMI-pipeline"
   status                           = "ENABLED"
   description                      = "Creates the golden AMI for ${var.operating_system}"
-  image_recipe_arn                 = aws_imagebuilder_image_recipe.this.arn
+  image_recipe_arn                 = aws_imagebuilder_image_recipe.this[var.version_to_publish].arn
   infrastructure_configuration_arn = aws_imagebuilder_infrastructure_configuration.this.arn
   distribution_configuration_arn   = aws_imagebuilder_distribution_configuration.this.arn
 

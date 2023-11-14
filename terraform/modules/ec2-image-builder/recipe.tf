@@ -1,13 +1,9 @@
-resource "aws_imagebuilder_image" "this" {
-  distribution_configuration_arn   = aws_imagebuilder_distribution_configuration.this.arn
-  image_recipe_arn                 = aws_imagebuilder_image_recipe.this.arn
-  infrastructure_configuration_arn = aws_imagebuilder_infrastructure_configuration.this.arn
-}
-
 resource "aws_imagebuilder_image_recipe" "this" {
+  for_each = var.versions
+
   name         = "itsre-${var.environment}-${var.operating_system}-AMI-recipe"
   parent_image = var.base_ami
-  version      = "1.0.0"
+  version      = each.value
 
   block_device_mapping {
     device_name = "/dev/sda1"
@@ -26,4 +22,12 @@ resource "aws_imagebuilder_image_recipe" "this" {
   working_directory = "/home/ec2-user"
 
   tags = var.tags
+}
+
+resource "aws_imagebuilder_image" "this" {
+  for_each = aws_imagebuilder_image_recipe.this
+
+  distribution_configuration_arn   = aws_imagebuilder_distribution_configuration.this.arn
+  image_recipe_arn                 = each.value.id
+  infrastructure_configuration_arn = aws_imagebuilder_infrastructure_configuration.this.arn
 }
