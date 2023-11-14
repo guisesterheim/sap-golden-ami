@@ -25,7 +25,8 @@ image_builder_map = {
         target_account_ids = ["654919738084"]
 
         versions = {
-            "v1.0.0": "1.0.0"
+            "v1.0.0": "1.0.0",
+            "v1.0.1": "1.0.1"
         }
         version_to_publish = "v1.0.0"
     }

@@ -14,7 +14,7 @@ resource "aws_imagebuilder_distribution_configuration" "this" {
 
       name = "Golden-AMI-${var.operating_system}-{{ imagebuilder:buildDate }}"
 
-      # target_account_ids = var.target_account_ids
+      target_account_ids = var.target_account_ids
     }
     region = var.aws_region
   }
