@@ -7,3 +7,11 @@ tuned_folder_path: /etc/tuned/sap-hana
 tuned_file_full_path: "{{ tuned_folder_path }}/tuned.conf"
 
 sapmnt_dir: /sapmnt
+
+proxy_lines:
+  - export http_proxy
+  - export https_proxy
+  - export HTTP_PROXY
+  - export HTTPS_PROXY
+  - export no_proxy
+  - export NO_PROXY

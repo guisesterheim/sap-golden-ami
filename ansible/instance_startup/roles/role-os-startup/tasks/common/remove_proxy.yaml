@@ -1,0 +1,8 @@
+---
+
+- name: Erase proxy configs from /etc/environment
+  lineinfile:
+    path: /etc/sudoers
+    state: absent
+    regexp: '^{{ item }}'
+  loop: "{{ proxy_lines }}"

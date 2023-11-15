@@ -6,6 +6,9 @@
 - name: Show variables received as input parameters
   include_tasks: common/show_input_variables.yaml
 
+- name: Remove proxy configurations
+  include_tasks: common/remove_proxy.yaml
+
 - name: Set tuned
   include_tasks: common/set_tuned.yaml
   when:
