@@ -24,3 +24,7 @@
 - name: Disable iptables service
   include_tasks: oel/disable_iptables.yaml
   when: ansible_distribution == "OracleLinux"
+
+- name: Apply NetWeaver kernel semaphore parameters
+  include_tasks: netweaver/kernel_parameters.yaml
+  when: GLOBAL_OS_CONFIG_TYPE == CONSTANT_NETWEAVER

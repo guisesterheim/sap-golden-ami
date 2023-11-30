@@ -1,0 +1,9 @@
+---
+
+# Set custom semaphore parameters
+- ansible.posix.sysctl:
+    name: kernel.sem
+    value: '1250 256000 100 1024'
+    state: present
+    sysctl_file: /etc/sysctl.conf
+    reload: true
