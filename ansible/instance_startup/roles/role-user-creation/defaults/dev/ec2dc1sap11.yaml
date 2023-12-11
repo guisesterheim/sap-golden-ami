@@ -9,7 +9,7 @@ groups_to_create:
     gid: 202
   - name: sapinst
     gid: 2000
-
+  
 users_to_create:
   - name: daaadm
     uid: 3198

@@ -9,3 +9,11 @@
     groups: "{{ item.groups }}"
   loop: "{{ users_to_create }}"
   when: users_to_create is defined
+
+- name: Change shell to C Shell
+  become: true
+  user:
+      name: "{{ item.uid }}"
+      shell: /bin/csh
+  loop: "{{ users_to_create }}"
+  when: users_to_create is defined

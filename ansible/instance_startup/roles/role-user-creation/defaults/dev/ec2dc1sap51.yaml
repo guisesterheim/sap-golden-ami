@@ -9,7 +9,7 @@ groups_to_create:
     gid: 202
   - name: sapinst
     gid: 2000
-
+  
 users_to_create:
   - name: daaadm
     uid: 3198
@@ -25,9 +25,5 @@ users_to_create:
     groups: dba,oper
   - name: d77adm
     uid: 3278
-    primary_group: sapsys
-    groups: sapsys,sapinst
-  - name: d70adm
-    uid: 3270
     primary_group: sapsys
     groups: sapsys,sapinst
