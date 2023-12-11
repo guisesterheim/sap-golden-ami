@@ -14,5 +14,6 @@
     path: "{{ item['os_path_to_mount'] }}"
     state: directory
     mode: '0777'
+    recurse: yes
   when: item['os_path_to_mount'] == '/tmp'
   loop: "{{ ebs_full_map }}"
