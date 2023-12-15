@@ -10,10 +10,10 @@
   loop: "{{ users_to_create }}"
   when: users_to_create is defined
 
-- name: Change shell to C Shell
+- name: Change shell to C Shell for Netweaver
   become: true
   user:
-      name: "{{ item.uid }}"
+      name: "{{ item.name }}"
       shell: /bin/csh
   loop: "{{ users_to_create }}"
-  when: users_to_create is defined
+  when: users_to_create is defined and GLOBAL_OS_CONFIG_TYPE == CONSTANT_NETWEAVER
