@@ -1,0 +1,33 @@
+---
+
+groups_to_create:
+  - name: sapsys
+    gid: 200
+  - name: dba
+    gid: 201
+  - name: oper
+    gid: 202
+  - name: sapinst
+    gid: 2000
+  
+users_to_create:
+  - name: daaadm
+    uid: 3198
+    primary_group: sapsys
+    groups: sapsys
+  - name: sapadm
+    uid: 3199
+    primary_group: sapsys
+    groups: sapsys
+  - name: d76adm
+    uid: 4176
+    primary_group: sapsys
+    groups: sapsys,sapinst
+  - name: d7gadm
+    uid: 4376
+    primary_group: sapsys
+    groups: sapsys,sapinst
+  - name: orad76
+    uid: 4177
+    primary_group: dba
+    groups: dba,oper

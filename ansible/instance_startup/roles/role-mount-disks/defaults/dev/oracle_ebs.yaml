@@ -1,17 +1,17 @@
 ---
 
 D77_SID: D77
-Q76_SID: Q76
+D76_SID: D76
 
 D77_stripes_oracle: 1
 D77_stripes_sapdata: 2
 D77_stripes_mirrlog: 1
 D77_stripes_origlog: 1
 
-Q76_stripes_oracle: 1
-Q76_stripes_sapdata: 2
-Q76_stripes_mirrlog: 1
-Q76_stripes_origlog: 1
+D76_stripes_oracle: 1
+D76_stripes_sapdata: 2
+D76_stripes_mirrlog: 1
+D76_stripes_origlog: 1
 
 oracle_lv_config:
   - key: D77
@@ -96,95 +96,95 @@ oracle_lv_config:
         size: 150G
         name: lv_oracle_sid_sapdata7
         stripes: "{{ D77_stripes_sapdata }}"
-  - key: Q76
+  - key: D76
     value:
       - folder: /oracle
         vg: vg_oracle
-        size: 10G
+        size: 5G
         name: lv_oracle
-        stripes: "{{ Q76_stripes_oracle }}"
+        stripes: "{{ D76_stripes_oracle }}"
       - folder: /oracle/stage
         vg: vg_oracle
         size: 40G
         name: lv_oracle_stage
-        stripes: "{{ Q76_stripes_oracle }}"
-      - folder: /oracle/{{ Q76_SID }}
+        stripes: "{{ D76_stripes_oracle }}"
+      - folder: /oracle/{{ D76_SID }}
         vg: vg_oracle
-        size: 40G
+        size: 50G
         name: lv_oracle_sid
-        stripes: "{{ Q76_stripes_oracle }}"
-      - folder: /oracle/{{ Q76_SID }}/oraarch
+        stripes: "{{ D76_stripes_oracle }}"
+      - folder: /oracle/{{ D76_SID }}/oraarch
         vg: vg_oracle
-        size: 40G
+        size: 20G
         name: lv_oracle_sid_oraarch
-        stripes: "{{ Q76_stripes_oracle }}"
-      - folder: /oracle/{{ Q76_SID }}/saparch
+        stripes: "{{ D76_stripes_oracle }}"
+      # - folder: /oracle/{{ D76_SID }}/saparch
+      #   vg: vg_oracle
+      #   size: 4G
+      #   name: lv_oracle_sid_saparch
+      #   stripes: "{{ D76_stripes_oracle }}"
+      - folder: /oracle/{{ D76_SID }}/sapreorg
         vg: vg_oracle
-        size: 4G
-        name: lv_oracle_sid_saparch
-        stripes: "{{ Q76_stripes_oracle }}"
-      - folder: /oracle/{{ Q76_SID }}/sapreorg
-        vg: vg_oracle
-        size: 10G
+        size: 50G
         name: lv_oracle_sid_sapreorg
-        stripes: "{{ Q76_stripes_oracle }}"
-      - folder: /oracle/{{ Q76_SID }}/origlogA
+        stripes: "{{ D76_stripes_oracle }}"
+      - folder: /oracle/{{ D76_SID }}/origlogA
         vg: vg_oracle_sid_origlog
-        size: 4G
+        size: 5G
         name: lv_oracle_sid_origlogA
-        stripes: "{{ Q76_stripes_origlog }}"
-      - folder: /oracle/{{ Q76_SID }}/origlogB
+        stripes: "{{ D76_stripes_origlog }}"
+      - folder: /oracle/{{ D76_SID }}/origlogB
         vg: vg_oracle_sid_origlog
-        size: 4G
+        size: 5G
         name: lv_oracle_sid_origlogB
-        stripes: "{{ Q76_stripes_origlog }}"
-      - folder: /oracle/{{ Q76_SID }}/origlogC
-        vg: vg_oracle_sid_origlog
-        size: 4G
-        name: lv_oracle_sid_origlogC
-        stripes: "{{ Q76_stripes_origlog }}"
-      - folder: /oracle/{{ Q76_SID }}/origlogD
-        vg: vg_oracle_sid_origlog
-        size: 4G
-        name: lv_oracle_sid_origlogD
-        stripes: "{{ Q76_stripes_origlog }}"
-      - folder: /oracle/{{ Q76_SID }}/mirrlogA
+        stripes: "{{ D76_stripes_origlog }}"
+      # - folder: /oracle/{{ D76_SID }}/origlogC
+      #   vg: vg_oracle_sid_origlog
+      #   size: 4G
+      #   name: lv_oracle_sid_origlogC
+      #   stripes: "{{ D76_stripes_origlog }}"
+      # - folder: /oracle/{{ D76_SID }}/origlogD
+      #   vg: vg_oracle_sid_origlog
+      #   size: 4G
+      #   name: lv_oracle_sid_origlogD
+      #   stripes: "{{ D76_stripes_origlog }}"
+      - folder: /oracle/{{ D76_SID }}/mirrlogA
         vg: vg_oracle_sid_mirrlog
-        size: 4G
+        size: 5G
         name: lv_oracle_sid_mirrlogA
-        stripes: "{{ Q76_stripes_mirrlog }}"
-      - folder: /oracle/{{ Q76_SID }}/mirrlogB
+        stripes: "{{ D76_stripes_mirrlog }}"
+      - folder: /oracle/{{ D76_SID }}/mirrlogB
         vg: vg_oracle_sid_mirrlog
-        size: 4G
+        size: 5G
         name: lv_oracle_sid_mirrlogB
-        stripes: "{{ Q76_stripes_mirrlog }}"
-      - folder: /oracle/{{ Q76_SID }}/mirrlogC
-        vg: vg_oracle_sid_mirrlog
-        size: 4G
-        name: lv_oracle_sid_mirrlogC
-        stripes: "{{ Q76_stripes_mirrlog }}"
-      - folder: /oracle/{{ Q76_SID }}/mirrlogD
-        vg: vg_oracle_sid_mirrlog
-        size: 4G
-        name: lv_oracle_sid_mirrlogD
-        stripes: "{{ Q76_stripes_mirrlog }}"
-      - folder: /oracle/{{ Q76_SID }}/sapdata1
+        stripes: "{{ D76_stripes_mirrlog }}"
+      # - folder: /oracle/{{ D76_SID }}/mirrlogC
+      #   vg: vg_oracle_sid_mirrlog
+      #   size: 4G
+      #   name: lv_oracle_sid_mirrlogC
+      #   stripes: "{{ D76_stripes_mirrlog }}"
+      # - folder: /oracle/{{ D76_SID }}/mirrlogD
+      #   vg: vg_oracle_sid_mirrlog
+      #   size: 4G
+      #   name: lv_oracle_sid_mirrlogD
+      #   stripes: "{{ D76_stripes_mirrlog }}"
+      - folder: /oracle/{{ D76_SID }}/sapdata1
         vg: vg_oracle_sid_sapdata
-        size: 60G
+        size: 80G
         name: lv_oracle_sid_sapdata1
-        stripes: "{{ Q76_stripes_sapdata }}"
-      - folder: /oracle/{{ Q76_SID }}/sapdata2
+        stripes: "{{ D76_stripes_sapdata }}"
+      - folder: /oracle/{{ D76_SID }}/sapdata2
         vg: vg_oracle_sid_sapdata
-        size: 90G
+        size: 80G
         name: lv_oracle_sid_sapdata2
-        stripes: "{{ Q76_stripes_sapdata }}"
-      - folder: /oracle/{{ Q76_SID }}/sapdata3
+        stripes: "{{ D76_stripes_sapdata }}"
+      - folder: /oracle/{{ D76_SID }}/sapdata3
         vg: vg_oracle_sid_sapdata
-        size: 60G
+        size: 80G
         name: lv_oracle_sid_sapdata3
-        stripes: "{{ Q76_stripes_sapdata }}"
-      - folder: /oracle/{{ Q76_SID }}/sapdata4
+        stripes: "{{ D76_stripes_sapdata }}"
+      - folder: /oracle/{{ D76_SID }}/sapdata4
         vg: vg_oracle_sid_sapdata
-        size: 90G
+        size: 80G
         name: lv_oracle_sid_sapdata4
-        stripes: "{{ Q76_stripes_sapdata }}"
+        stripes: "{{ D76_stripes_sapdata }}"
