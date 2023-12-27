@@ -10,10 +10,6 @@
   loop: "{{ ebs_full_map }}"
 
 - name: Fix permissions for the /tmp folder if it exists
-  file:
-    path: "{{ item['os_path_to_mount'] }}"
-    state: directory
-    mode: '0777'
-    recurse: yes
+  ansible.builtin.shell: chmod a=rwx,o+t /tmp
   when: item['os_path_to_mount'] == '/tmp'
   loop: "{{ ebs_full_map }}"
