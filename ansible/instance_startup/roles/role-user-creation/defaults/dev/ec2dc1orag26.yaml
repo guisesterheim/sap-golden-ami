@@ -33,7 +33,7 @@ users_to_create:
     uid: 4176
     primary_group: sapsys
     groups: sapsys,sapinst
-  # - name: s71adm
-  #   uid: 4371
-  #   primary_group: sapsys
-  #   groups: sapsys,sapinst
+  - name: d7gadm
+    uid: 4371
+    primary_group: sapsys
+    groups: sapsys,sapinst
