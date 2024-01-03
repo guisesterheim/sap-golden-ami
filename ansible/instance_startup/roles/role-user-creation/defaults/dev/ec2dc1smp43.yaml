@@ -1,0 +1,15 @@
+---
+
+groups_to_create:
+  - name: sapsys
+    gid: 200
+  
+users_to_create:
+  - name: daaadm
+    uid: 3198
+    primary_group: sapsys
+    groups: sapsys
+  - name: sapadm
+    uid: 3199
+    primary_group: sapsys
+    groups: sapsys
